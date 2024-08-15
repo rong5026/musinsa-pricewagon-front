@@ -8,10 +8,10 @@
   background-color: #e59999;
 }
 
-@media (min-width: 620px) {
+@media (min-width: 580px) {
   .sub_wrapper  {
     height: 100%;
-    min-width: 620px;
+    min-width: 580px;
     overflow-y: scroll;
     background-color: #4bc062;
     display: flex;
@@ -21,7 +21,7 @@
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 580px) {
   .sub_wrapper  {
     height: 100%;
     width: 100%;
