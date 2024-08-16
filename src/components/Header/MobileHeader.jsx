@@ -3,7 +3,7 @@ import Clover from '../../assets/images/clover.png'
 
 function MobileHeader() {
   return (
-    <header className="h-20 w-full bg-[#F1F4F6] z-10 items-center justify-between px-4 flex header-hide">
+    <header className="fixed top-0 h-20 w-full bg-[#F1F4F6] z-10 items-center justify-between px-4 flex header-hide">
       <img
         alt="pricewagon"
         src={Clover}

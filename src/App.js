@@ -10,8 +10,7 @@ function App() {
       <div className="wrapper">
         <div className="sub_wrapper">
           <Header />
-          <main className="pt-16 sm:pt-20 lg:pt-36 xl:pt-40 relative flex-grow border-b-2 h-auto ">
-            
+          <main className="pt-36 sm:pt-20 lg:pt-36 xl:pt-40 ">
             <Routes>
               <Route exact path="/" element={<MainPage />} />
               {/* <Route path="/header" element={<Header />} /> */}

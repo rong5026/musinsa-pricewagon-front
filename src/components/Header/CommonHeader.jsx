@@ -2,7 +2,7 @@ import React from 'react';
 
 function CommonHeader() {
   return (
-    <header className="px-4 md:px-8 lg:px-0 h-16 sm:h-20 lg:h-36 xl:h-40 w-full transition duration-200 ease-in-out border-b border-jnGray-300 fixed z-20 text-gray-700 bg-white">
+    <header className="px-4 mt-20 sm:mt-0 z-30 md:px-8 lg:px-0 h-16 sm:h-20 lg:h-36 xl:h-40 w-full transition duration-200 ease-in-out border-b border-jnGray-300 fixed text-gray-700 bg-white">
       <div className="h-full lg:h-20 xl:h-24 px-0 lg:px-8 2xl:px-16 max-w-[1024px] min-[1600px]:max-w-[1280px] flex items-center mx-auto box-content justify-between relative  bg-[#ffffff]">
         <button className="flex flex-col items-center justify-center flex-shrink-0 outline-none menuBtn start-0 focus:outline-none lg:hidden basis-[24px] w-[24px] h-[24px]">
           <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
