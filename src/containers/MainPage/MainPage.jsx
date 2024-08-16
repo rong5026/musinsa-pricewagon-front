@@ -4,7 +4,7 @@ function MainPage() {
   return (
     
     <div className="bg-orange-300">
-        MainPage
+        MainPagesdfsdfsdf
     </div>
   )
 }

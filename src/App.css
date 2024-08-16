@@ -3,7 +3,7 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  min-width: 500px;
+  min-width: 300px;
   margin: auto;
   align-items: center;
   background-color: #e59999;
@@ -25,7 +25,7 @@
 
 @media (max-width: 500px) {
   .sub_wrapper  {
-    height: 100%;
+    height: 100vh;
     width: 100%;
     overflow-y: scroll;
     background-color: antiquewhite;
