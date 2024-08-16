@@ -3,7 +3,7 @@ import hamster from '../../assets/images/hamster.png'
 
 function Header() {
   return (
-    <header className="h-20 w-full bg-[#F1F4F6] z-10 flex items-center justify-between px-4">
+    <header className="h-20 w-full bg-[#F1F4F6] z-10 items-center justify-between px-4 flex header-hide">
     <img alt='pricewagon' src={hamster} width={42} height={42} loading="lazy" />
     <div className="flex flex-col justify-center pl-4">
       <span className="font-bold leading-5">빠르고 간편하게 비교하기</span>
