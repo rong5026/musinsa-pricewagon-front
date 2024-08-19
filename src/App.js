@@ -16,7 +16,7 @@ function App() {
             {/* <Route path="/header" element={<Header />} /> */}
           </Routes>
         </main>
-        <MobileNavBar />
+        {/* <MobileNavBar /> */}
         <Footer />
       </div>
     </Router>
