@@ -10,13 +10,13 @@ function App() {
       <div className="wrapper">
         <div className="sub_wrapper">
           <Header />
-          <main className="pt-36 sm:pt-20 lg:pt-36 xl:pt-40 ">
+          <main className="pt-36 sm:pt-20 lg:pt-36 xl:pt-40 sm:px-6 max-w-6xl">
             <Routes>
               <Route exact path="/" element={<MainPage />} />
               {/* <Route path="/header" element={<Header />} /> */}
             </Routes>
           </main>
-          {/* <FooterMenu /> */}
+          <FooterMenu />
         </div>
       </div>
     </Router>
