@@ -6,7 +6,10 @@ module.exports = {
   theme: {
     extend: {
       colors : {
-        customBg : '#F1F4F6'
+        customBg : '#F1F4F6',
+      },
+      screens : {
+        'max-h-840' : {'raw' : '(max-height : 840px)'},
       }
     },
   },

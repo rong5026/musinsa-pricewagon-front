@@ -46,7 +46,6 @@ const menuItems = [
 
 function Sidebar({ isSidebarOpen, toggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
   // react-spring 애니메이션 설정
@@ -55,6 +54,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
     opacity: isDropdownOpen ? 1 : 0,
     overflow: 'hidden',
   });
+
 
   return (
     <div
@@ -73,12 +73,12 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
         <ul className="space-y-2">
           {menuItems.map((item) =>
             item.subItems ? (
-              <li key={item.name} className="px-4 py-3 rounded-lg cursor-pointer transition-colors duration-200">
+              <li key={item.name} className="px-4 rounded-lg cursor-pointer transition-colors duration-200">
                 <div
                   className="flex items-center justify-between hover:bg-gray-700 rounded-lg"
                   onClick={toggleDropdown}
                 >
-                  <div className="flex items-center">
+                  <div className="flex items-center py-1">
                     <span className="mr-2">{item.icon}</span>
                     {item.name}
                   </div>
@@ -88,7 +88,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
                     }`}
                   />
                 </div>
-                <animated.ul style={dropdownAnimation} className="mt-2 ml-4 space-y-2">
+                <animated.ul style={dropdownAnimation} className="mt-2 ml-4 space-y-2 max-h-840:grid max-h-840:grid-cols-2 max-h-840:gap-4">
                   {item.subItems.map((subItem) => (
                     <li
                       key={subItem.name}
@@ -112,14 +112,16 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
           )}
         </ul>
       </nav>
-
-      <div className="flex justify-center items-center space-x-4 p-6 border-t border-gray-500">
-        <FaTwitter className="cursor-pointer hover:text-gray-400" size={20} />
-        <FaFacebookF className="cursor-pointer hover:text-gray-400" size={20} />
-        <FaInstagram className="cursor-pointer hover:text-gray-400" size={20} />
-        <FaGithub className="cursor-pointer hover:text-gray-400" size={20} />
-        <FaEnvelope className="cursor-pointer hover:text-gray-400" size={20} />
+      <div className="absolute bottom-0 left-0 w-full">
+        <div className="flex justify-center items-center space-x-6 p-10 border-t border-gray-500">
+          <FaTwitter className="cursor-pointer hover:text-gray-400" size={20} />
+          <FaFacebookF className="cursor-pointer hover:text-gray-400" size={20} />
+          <FaInstagram className="cursor-pointer hover:text-gray-400" size={20} />
+          <FaGithub className="cursor-pointer hover:text-gray-400" size={20} />
+          <FaEnvelope className="cursor-pointer hover:text-gray-400" size={20} />
+        </div>
       </div>
+
     </div>
   );
 }
