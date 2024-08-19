@@ -12,7 +12,7 @@ function Footer() {
           {/* Navigation Links */}
           <div className="flex space-x-6 text-sm font-medium">
             <a href="#" className="hover:text-white">
-              Product
+              About
             </a>
             <a href="#" className="hover:text-white">
               Features

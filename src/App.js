@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import BottomMenuBar from './components/BottomMenuBar/BottomeMenuBar';
+import MobileNavBar from './components/BottomMenuBar/MobileNavBar';
 import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 
@@ -16,7 +16,7 @@ function App() {
             {/* <Route path="/header" element={<Header />} /> */}
           </Routes>
         </main>
-        <BottomMenuBar />
+        <MobileNavBar />
         <Footer />
       </div>
     </Router>
