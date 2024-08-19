@@ -1,8 +1,11 @@
 import React from 'react';
 
-function MenuButton() {
+function MenuButton({ toggleSidebar }) {
   return (
-    <button className="flex flex-col items-center justify-center flex-shrink-0 outline-none start-0 focus:outline-none lg:hidden basis-[24px] w-[24px] h-[24px]">
+    <button
+      onClick={toggleSidebar}
+      className="flex flex-col items-center justify-center flex-shrink-0 outline-none start-0 focus:outline-none lg:hidden basis-[24px] w-[24px] h-[24px]"
+    >
       <svg width={24} height={24} viewBox="0 0 24 24" fill="none">
         <path
           d="M5 18H19"
