@@ -2,8 +2,9 @@ import React from 'react';
 import MenuButton from './Button/Menu';
 import SearchButton from './Button/Search';
 import Category from './Button/Category';
-import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
-
+import { IoChatbubbleEllipsesOutline} from 'react-icons/io5';
+import { AiOutlineAppstoreAdd } from 'react-icons/ai';
+import { GoPerson } from "react-icons/go";
 function CommonHeader() {
   return (
     <header className="px-4 w-full  mt-20 sm:mt-0 sm:px-8 z-30 md:px-8 lg:px-6 h-16 sm:h-20 lg:h-36 xl:h-40 transition duration-200 ease-in-out border-b border-jnGray-300 fixed text-gray-700">
@@ -42,6 +43,29 @@ function CommonHeader() {
                 </div>
                 <p className="ml-1 group-hover:scale-105 transition-transform duration-300">
                   문의하기
+                </p>
+              </button>
+            </li>
+            <li className="rounded-full hover:bg-gray-200 transition-colors duration-300 relative flex items-center justify-center px-3 before:content-[''] before:absolute before:h-4 before:w-[1px] before:bg-gray-300 before:-inset-1 before:top-1/2 before:transform before:-translate-y-1/2">
+              <button className="group flex items-center justify-center [&>p]:ml-1 whitespace-nowrap">
+                <div className="relative cursor-pointer group-hover:scale-105 transition-transform duration-300">
+                  <AiOutlineAppstoreAdd size={24} />
+                </div>
+
+                <p className="group-hover:scale-105 transition-transform duration-300">
+                  상품 등록
+                </p>
+              </button>
+            </li>
+
+            <li className="rounded-full hover:bg-gray-200 transition-colors duration-300 relative flex items-center justify-center px-3 before:content-[''] before:absolute before:h-4 before:w-[1px] before:bg-gray-300 before:-inset-1 before:top-1/2 before:transform before:-translate-y-1/2">
+              <button className="group flex items-center justify-center [&>p]:ml-1 whitespace-nowrap">
+                <div className="relative cursor-pointer group-hover:scale-105 transition-transform duration-300">
+                  <GoPerson size={24} />
+                </div>
+
+                <p className="group-hover:scale-105 transition-transform duration-300">
+                  마이페이지
                 </p>
               </button>
             </li>
