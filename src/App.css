@@ -39,6 +39,9 @@
   .header-hide {
     display: none;
   }
+  .footer-hide {
+    display: none;
+  }
 }
 
 main {
