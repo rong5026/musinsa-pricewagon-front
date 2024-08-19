@@ -2,7 +2,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
 import FooterMenu from './components/Footer/Footer';
-import MainPage from './containers/MainPage/MainPage';
+import MainPage from './containers/Main/MainPage';
 
 function App() {
   return (
