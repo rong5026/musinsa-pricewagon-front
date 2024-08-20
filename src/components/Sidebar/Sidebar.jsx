@@ -112,7 +112,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
           )}
         </ul>
       </nav>
-      <div className="absolute bottom-0 left-0 w-full">
+      <div className="max-h-720:hidden absolute bottom-0 left-0 w-full">
         <div className="flex justify-center items-center space-x-6 p-10 border-t border-gray-500">
           <FaTwitter className="cursor-pointer hover:text-gray-400" size={20} />
           <FaFacebookF className="cursor-pointer hover:text-gray-400" size={20} />

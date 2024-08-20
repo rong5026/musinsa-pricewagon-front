@@ -10,6 +10,7 @@ module.exports = {
       },
       screens : {
         'max-h-840' : {'raw' : '(max-height : 840px)'},
+        'max-h-720' : {'raw' : '(max-height : 720px)'},
       }
     },
   },
