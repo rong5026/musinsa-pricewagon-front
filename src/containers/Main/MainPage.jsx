@@ -1,11 +1,13 @@
 import React from 'react';
-import Product from '../../components/Product/Product';
 import MainBanner from '../../components/Banner/MainBanner'
+import DiscountedProductsList from './DiscountedProduct';
+
 function MainPage() {
  
   return (
-    <div className="p-4 h-screen bg-slate-600">
+    <div className="p-4 h-full bg-slate-600">
       <MainBanner/>
+      <DiscountedProductsList/>
       
     </div>
   );

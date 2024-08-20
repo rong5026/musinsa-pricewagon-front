@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -28,6 +28,9 @@ const slides = [
 ];
 
 function Banner() {
+  const [currentSlide, setCurrentSlide] = useState(0); // 여기에서 currentSlide 변수를 정의합니다.
+  const sliderRef = useRef(null);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -35,14 +38,15 @@ function Banner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 3000, // Automatically slide every 3 seconds
-    pauseOnHover: true, // Pause autoplay on hover
-    arrows: false, // Hide navigation arrows
+    autoplaySpeed: 3000, // 3초마다 자동 슬라이드
+    pauseOnHover: true,
+    arrows: false,
+    beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex), // 슬라이드가 변경될 때 currentSlide 업데이트
   };
 
   return (
     <div className="relative rounded-lg overflow-hidden shadow-lg w-full h-96">
-      <Slider {...settings}>
+      <Slider ref={sliderRef} {...settings}>
         {slides.map((slide) => (
           <div key={slide.id} className="w-full h-96 relative">
             <div
@@ -61,6 +65,15 @@ function Banner() {
           </div>
         ))}
       </Slider>
+      {/* 페이지 인디케이터 */}
+      <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+        {slides.map((_, index) => (
+          <div
+            key={index}
+            className={`w-3 h-3 rounded-full ${index === currentSlide ? 'bg-white' : 'bg-gray-400'}`}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 }

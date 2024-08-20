@@ -5,6 +5,7 @@ import MobileNavBar from './components/Navbar/MobileNavBar';
 import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 import ProductDeatil from './containers/ProductDetail/ProductDeatil';
+import ProductList from './containers/ProductList/ProductList';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<MainPage />} />
             <Route path="/products" element={<ProductDeatil />} />
+            <Route path='/product' element={<ProductList/>} />
           </Routes>
         </main>
         {/* <MobileNavBar /> */}
