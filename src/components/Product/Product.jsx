@@ -14,7 +14,7 @@ function Product({ product }) {
         alt={product.name}
         className="w-full h-36 md:h-40 lg:h-48 object-cover transition-transform duration-300 hover:scale-110"
       />
-      <div className="p-4">
+      <div className="p-4 sm:p-3 md:p-4">
         {/* 제목 컨테이너에 고정 높이 설정 */}
         <div className="h-12 sm:h-16 md:h-20">
           <h2 className="text-base md:text-lg font-semibold leading-tight">
@@ -40,7 +40,7 @@ function Product({ product }) {
           <div className="flex items-center">
             <FaStar className="text-yellow-400 mr-1" />
             <span className="font-semibold">{product.rating}</span>
-            <span className="ml-1 sm:ml-0 md:ml-1">({product.reviews})</span>
+            <span className="ml-0 md:ml-1">({product.reviews})</span>
           </div>
           <div className="flex items-center">
             <FaHeart className="text-red-500 mr-1" />
