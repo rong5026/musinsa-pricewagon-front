@@ -6,7 +6,7 @@ import ButtonGroup from './Button/Group';
 import SearchBar from './SearchBar';
 import Title from './Title';
 import { useState } from 'react';
-import Sidebar from '../Sidebar/Sidebar'
+import Sidebar from '../Navbar/Sidebar'
 
 function CommonHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

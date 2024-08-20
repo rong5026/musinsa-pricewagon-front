@@ -10,7 +10,7 @@ import {
 import PriceGraph from '../../components/Graph/PriceGraph';
 import CustomButton from '../../components/Button/CustomButton';
 import PriceInfoCard from './PriceInfoCard';
-import RatingInfo from './\bRatingInfo';
+import RatingInfo from './RatingInfo';
 
 function ProductDetail() {
   return (

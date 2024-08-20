@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import MobileNavBar from './components/BottomMenuBar/MobileNavBar';
+import MobileNavBar from './components/Navbar/MobileNavBar';
 import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 import ProductDeatil from './containers/ProductDetail/ProductDeatil';
