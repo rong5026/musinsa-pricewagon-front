@@ -22,12 +22,11 @@ const data = [
 
 function PriceGraph() {
   return (
-    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">가격변동</h2>
+    <div className="w-full h-72 sm:h-72 md:h-80 lg:h-96 mt-8">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={data}
-          margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 20, right: 30, left: -20, bottom: 10 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
           <XAxis
