@@ -10,6 +10,7 @@ import {
 import PriceGraph from '../../components/Graph/PriceGraph';
 import CustomButton from '../../components/Button/CustomButton';
 import PriceInfoCard from './PriceInfoCard';
+import RatingInfo from './\bRatingInfo';
 
 function ProductDetail() {
   return (
@@ -29,13 +30,18 @@ function ProductDetail() {
         <div className="mt-6 md:mt-0 flex-grow flex flex-col justify-between">
           <div className="p-6 bg-white rounded-lg shadow-sm flex-grow">
             {/* 브랜드 및 상품명 */}
-            <div className="mb-6">
-              <h2 className="text-gray-500 text-sm">브랜드: 쿠팡</h2>
-              <h1 className="text-2xl font-bold text-gray-800">
-                [쿠팡] 🚀 팬틴 비오틴 볼륨 케어 트리트먼트, 220ml, 2개
-              </h1>
-            </div>
+            <div className="mb-2 flex items-center space-x-4">
+              <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded">
+                쿠팡
+              </span>
+              {/* 카테고리 */}
 
+              <h2 className="text-gray-500 text-sm">바지 {">"} 반바지 </h2>
+             
+            </div>
+            <h1 className="text-2xl font-bold text-gray-800">
+              [쿠팡] 🚀 팬틴 비오틴 볼륨 케어 트리트먼트, 220ml, 2개
+            </h1>
             {/* 가격 정보 및 할인율 */}
             <div className="flex items-center text-xl font-bold mb-10 mt-10">
               <span className="mr-2 text-2xl text-red-600">▼ 42%</span>
@@ -46,25 +52,24 @@ function ProductDetail() {
             </div>
 
             {/* 별점, 리뷰 수, 좋아요 수 */}
-            <div className="flex items-center space-x-6 mt-4 text-gray-700">
-              <div className="flex items-center">
-                <FaStar className="text-yellow-400 mr-1" />
-                <span className="font-semibold">4.5</span>
-                <span className="ml-1 text-sm">(1,234 리뷰)</span>
-              </div>
-              <div className="flex items-center">
-                <FaHeart className="text-red-500 mr-1" />
-                <span className="font-semibold">567</span>
-              </div>
-              <div className="flex items-center">
-                <FaBookmark className="text-blue-500 mr-1" />
-                <span className="font-semibold">234</span>
-              </div>
+            <RatingInfo
+              rating={4.5}
+              reviews={1234}
+              likes={567}
+              bookmarks={234}
+            />
+
+            {/* 가격 수집 일자 */}
+            <div className="text-sm text-gray-500 text-left mt-2">
+              가격 수집 일자:{' '}
+              <span className="font-medium text-gray-700">
+                2024년 7월 20일 14:30
+              </span>
             </div>
           </div>
 
           {/* 가격 정보 카드 */}
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
+          <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-2">
             <PriceInfoCard
               label="평균가"
               value="15,944원"
@@ -86,7 +91,7 @@ function ProductDetail() {
           </div>
 
           {/* 구매 및 찜하기 버튼 */}
-          <div className="bg-white mt-6 flex items-center justify-between space-x-4 p-4 rounded-lg shadow-md">
+          <div className="bg-white mt-2 flex items-center justify-between space-x-4 p-4 rounded-lg shadow-md">
             <CustomButton label="구매하기" size="large" />
             <CustomButton label="찜하기" size="large" />
           </div>
