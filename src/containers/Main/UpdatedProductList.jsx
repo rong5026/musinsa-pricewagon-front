@@ -304,17 +304,18 @@ const ProductCarousel = () => {
 
       <Slider {...settings}>
         {products[selectedTab].map(product => (
-          <div key={product.id} className="px-4">
-            <img
-              src={product.img}
-              alt={product.name}
-              className="w-full h-48 object-cover rounded-lg mb-2"
-            />
-            <p className="font-medium">{product.name}</p>
-            <p className="text-lg text-blue-600 font-semibold">
-              {product.price}
-            </p>
-          </div>
+            <Product key={product.id} product={product} className="px-4"/>
+        //   <div key={product.id} className="px-4">
+        //     <img
+        //       src={product.img}
+        //       alt={product.name}
+        //       className="w-full h-48 object-cover rounded-lg mb-2"
+        //     />
+        //     <p className="font-medium">{product.name}</p>
+        //     <p className="text-lg text-blue-600 font-semibold">
+        //       {product.price}
+        //     </p>
+        //   </div>
         ))}
       </Slider>
     </div>

@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
 
-function Product({ product }) {
+function Product({ product , className}) {
   // 원래 가격 계산
   const originalPrice = Math.round(
     product.price / ((100 - product.discount) / 100)
   ).toLocaleString();
 
   return (
-    <div className="bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg">
+    <div className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg ${className}`}>
       <img
         src={product.img}
         alt={product.name}
