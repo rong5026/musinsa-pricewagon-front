@@ -1,15 +1,19 @@
 import React from 'react';
 import MainBanner from '../../components/Banner/MainBanner'
-import DiscountedProductsList from './DiscountedProduct';
+import BestProductsList from './BestProductList';
 import PromoBanner from '../../components/Banner/PromotionBanner';
+import ProductRegistration from './ProductRegistration';
+import UpdatedProductList from './UpdatedProductList';
 
 function MainPage() {
  
   return (
     <div className="p-4 h-full">
       <MainBanner/>
-      <DiscountedProductsList/>
+      <BestProductsList/>
       <PromoBanner/>
+      <ProductRegistration/>
+      <UpdatedProductList/>
     </div>
   );
 }

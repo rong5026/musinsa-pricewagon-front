@@ -15,8 +15,8 @@ function App() {
         <main className="pt-36 pb-12 sm:pt-20 lg:pt-36 xl:pt-40 sm:px-6 max-w-6xl">
           <Routes>
             <Route exact path="/" element={<MainPage />} />
-            <Route path="/products" element={<ProductDeatil />} />
-            <Route path='/product' element={<ProductList/>} />
+            <Route path="/product-detail" element={<ProductDeatil />} />
+            <Route path='/product-list' element={<ProductList/>} />
           </Routes>
         </main>
         {/* <MobileNavBar /> */}
