@@ -260,39 +260,46 @@ const ProductCarousel = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto text-center p-4">
-      <div className="flex justify-center mb-6 space-x-4">
-        <button
-          className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
-            selectedTab === 'increase'
-              ? 'bg-green-500 text-white'
-              : 'bg-gray-200 text-gray-700'
-          }`}
-          onClick={() => setSelectedTab('increase')}
-        >
-          <FaArrowUp
-            className={`${
-              selectedTab === 'increase' ? 'text-white' : 'text-green-500'
-            }`}
-          />
-          <span>가격 상승</span>
-        </button>
+    <div className=" max-w-6xl mx-auto text-center py-10">
+      <div className=' flex flex-col md:flex-row  md:justify-between'>
+        <h2 className="text-xl md:text-2xl md:pl-1 font-bold mb-3 text-gray-800">
+          가격 변동 상품
+        </h2>
 
-        <button
-          className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
-            selectedTab === 'decrease'
-              ? 'bg-red-500 text-white'
-              : 'bg-gray-200 text-gray-700'
-          }`}
-          onClick={() => setSelectedTab('decrease')}
-        >
-          <FaArrowDown
-            className={`${
-              selectedTab === 'decrease' ? 'text-white' : 'text-red-500'
+         {/* 버튼부분 */}
+        <div className="flex justify-center md:justify-center md:pr-4 mb-6 space-x-4">
+          <button
+            className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
+              selectedTab === 'increase'
+                ? 'bg-green-500 text-white'
+                : 'bg-gray-200 text-gray-700'
             }`}
-          />
-          <span>가격 하락</span>
-        </button>
+            onClick={() => setSelectedTab('increase')}
+          >
+            <FaArrowUp
+              className={`${
+                selectedTab === 'increase' ? 'text-white' : 'text-green-500'
+              }`}
+            />
+            <span>가격 상승</span>
+          </button>
+
+          <button
+            className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
+              selectedTab === 'decrease'
+                ? 'bg-red-500 text-white'
+                : 'bg-gray-200 text-gray-700'
+            }`}
+            onClick={() => setSelectedTab('decrease')}
+          >
+            <FaArrowDown
+              className={`${
+                selectedTab === 'decrease' ? 'text-white' : 'text-red-500'
+              }`}
+            />
+            <span>가격 하락</span>
+          </button>
+        </div>
       </div>
 
       <Slider {...settings}>

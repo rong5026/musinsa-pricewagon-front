@@ -24,7 +24,7 @@ function Title() {
 function BestProductsList() {
  
   return (
-    <div className="max-w-6xl mx-auto mt-9">
+    <div className="max-w-6xl mx-auto mt-9 pb-4">
       <Title />
       <div className="w-full pt-2">
         <ProductList />

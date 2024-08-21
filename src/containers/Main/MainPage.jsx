@@ -4,6 +4,7 @@ import BestProductsList from './BestProductList';
 import PromoBanner from '../../components/Banner/PromotionBanner';
 import ProductRegistration from './ProductRegistration';
 import UpdatedProductList from './UpdatedProductList';
+import DivideLine from '../../components/DivideLine';
 
 function MainPage() {
  
@@ -11,9 +12,12 @@ function MainPage() {
     <div className="p-4 h-full">
       <MainBanner/>
       <BestProductsList/>
-      <PromoBanner/>
-      <ProductRegistration/>
+      <DivideLine/>
+      {/* <ProductRegistration/>
+      <DivideLine/> */}
       <UpdatedProductList/>
+      <PromoBanner/>
+
     </div>
   );
 }
