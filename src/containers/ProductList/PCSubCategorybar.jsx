@@ -1,11 +1,10 @@
-import React,  { useState } from 'react';
+import React, { useState } from 'react';
 
-function PCSubCategorybar({categories}) {
-
+function PCSubCategorybar({ categories }) {
   return (
-    <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-lg rounded-lg">
+    <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-lg rounded-lg ml-5">
       <div className="font-bold text-xl mb-4 border-b pb-2 text-gray-700">
-        하위 카테고리
+        상의
       </div>
       <ul className="space-y-2">
         {categories.map(category => (

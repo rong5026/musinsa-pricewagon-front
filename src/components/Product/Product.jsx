@@ -25,16 +25,16 @@ function Product({ product, className }) {
         </div>
 
         {/* 가격 정보 */}
-        <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 sm:justify-start justify-end">
-          <span className="text-gray-500 line-through text-sm sm:mr-2">
+        <div className="flex flex-col items-end mt-2">
+          <span className="text-gray-500 line-through text-sm sm:mr-2 ">
             {originalPrice}원
           </span>
           <div className="flex items-baseline">
-            <span className="text-red-500 font-bold text-base md:text-lg lg:text-xl">
-              {product.price.toLocaleString()}원s
-            </span>
-            <span className="ml-2 text-xs text-red-500 lg:text-base">
+            <span className="mr-2 text-xs text-red-500 lg:text-base">
               ▼ {product.discount}%
+            </span>
+            <span className="text-red-500 font-bold text-base md:text-lg lg:text-xl">
+              {product.price.toLocaleString()}원
             </span>
           </div>
         </div>

@@ -17,11 +17,7 @@ function ProductList() {
     // 필요한 만큼 카테고리를 추가합니다.
   ];
 
-  const [activeCategory, setActiveCategory] = useState(null);
 
-  const handleCategoryClick = categoryId => {
-    setActiveCategory(categoryId);
-  };
 
   return (
     <div className="flex flex-col lg:flex-row">
