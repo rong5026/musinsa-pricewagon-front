@@ -44,7 +44,7 @@ const menuItems = [
   { name: '로그인', icon: <FaSignInAlt /> },
 ];
 
-function Sidebar({ isSidebarOpen, toggleSidebar }) {
+function PCNavbar({ isSidebarOpen, toggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -127,4 +127,4 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
   );
 }
 
-export default Sidebar;
+export default PCNavbar;
