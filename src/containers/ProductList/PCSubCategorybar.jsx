@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function PCSubCategorybar({ categories }) {
     return (
-      <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-xl rounded-lg ml-5 border border-gray-200">
+      <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-md rounded-lg ml-5 border border-gray-100">
         <div className="font-extrabold text-2xl mb-6 text-gray-800 border-b-2 border-gray-200 pb-3">
           상의
         </div>
@@ -10,7 +10,7 @@ function PCSubCategorybar({ categories }) {
           {categories.map(category => (
             <li
               key={category.id}
-              className="py-3 px-5 bg-gradient-to-r from-white to-gray-50 hover:from-gray-100 hover:to-gray-200 hover:text-green-700 hover:shadow-lg  border-gray-200 rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
+              className="py-3 px-5 bg-gradient-to-r from-white to-gray-50 hover:from-gray-100 hover:to-gray-200 hover:shadow-md  border-gray-200 rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
             >
               {category.name}
             </li>
