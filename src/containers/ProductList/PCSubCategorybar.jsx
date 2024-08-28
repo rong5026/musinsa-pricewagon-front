@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 
 function PCSubCategorybar({ categories }) {
-  return (
-    <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-lg rounded-lg ml-5">
-      <div className="font-bold text-xl mb-4 border-b pb-2 text-gray-700">
-        상의
+    return (
+      <div className="hidden lg:block lg:w-1/4 bg-white p-6 shadow-xl rounded-lg ml-5 border border-gray-200">
+        <div className="font-extrabold text-2xl mb-6 text-gray-800 border-b-2 border-gray-200 pb-3">
+          상의
+        </div>
+        <ul className="space-y-3">
+          {categories.map(category => (
+            <li
+              key={category.id}
+              className="py-3 px-5 bg-gradient-to-r from-white to-gray-50 hover:from-gray-100 hover:to-gray-200 hover:text-green-700 hover:shadow-lg  border-gray-200 rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
+            >
+              {category.name}
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className="space-y-2">
-        {categories.map(category => (
-          <li
-            key={category.id}
-            className="py-2 px-4 bg-gray-100 hover:bg-gray-200 rounded-lg cursor-pointer transition-colors duration-200"
-          >
-            {category.name}
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
-}
+    );
+  }
 
 export default PCSubCategorybar;
