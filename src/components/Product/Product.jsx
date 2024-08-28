@@ -3,7 +3,9 @@ import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
 
 function Product({ product, className }) {
   // 원래 가격 계산
-  const discount = Math.round(((product.originPrice - product.salePrice) / product.originPrice) * 100)
+  const discount = Math.round(
+    ((product.originPrice - product.salePrice) / product.originPrice) * 100
+  );
 
   return (
     <div
@@ -15,7 +17,7 @@ function Product({ product, className }) {
         className="w-full h-36 md:h-40 lg:h-48 object-cover transition-transform duration-300 hover:scale-110"
       />
       <div className="p-4 sm:p-3 md:p-4">
-        <div className='text-sm md:text-base text-gray-700'>
+        <div className="text-sm md:text-base text-gray-700">
           {product.brand}
         </div>
         {/* 제목 컨테이너에 고정 높이 설정 */}
@@ -28,14 +30,14 @@ function Product({ product, className }) {
         {/* 가격 정보 */}
         <div className="flex flex-col items-end mt-2">
           <span className="text-gray-500 line-through text-sm sm:mr-2 ">
-            {product.originPrice}원
+            {product.originPrice.toLocaleString()}원
           </span>
           <div className="flex items-baseline">
             <span className="mr-2 text-xs text-red-500 lg:text-base">
               ▼ {discount}%
             </span>
             <span className="text-red-500 font-bold text-base md:text-lg lg:text-xl">
-              {product.salePrice}원
+              {product.salePrice.toLocaleString()}원
             </span>
           </div>
         </div>
