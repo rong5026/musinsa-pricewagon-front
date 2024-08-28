@@ -88,6 +88,7 @@ function Sidebar({ isSidebarOpen, toggleSidebar }) {
                     }`}
                   />
                 </div>
+                
                 <animated.ul style={dropdownAnimation} className="mt-2 ml-4 space-y-2 max-h-840:grid max-h-840:grid-cols-2 max-h-840:gap-4">
                   {item.subItems.map((subItem) => (
                     <li

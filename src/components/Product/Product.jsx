@@ -1,14 +1,16 @@
 import React from 'react';
 import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
 
-function Product({ product , className}) {
+function Product({ product, className }) {
   // 원래 가격 계산
   const originalPrice = Math.round(
     product.price / ((100 - product.discount) / 100)
   ).toLocaleString();
 
   return (
-    <div className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg ${className}`}>
+    <div
+      className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg ${className}`}
+    >
       <img
         src={product.img}
         alt={product.name}
@@ -22,20 +24,20 @@ function Product({ product , className}) {
           </h2>
         </div>
 
-          {/* 가격 정보 */}
-    <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 sm:justify-start justify-end">
-      <span className="text-gray-500 line-through text-sm sm:mr-2">
-        {originalPrice}원
-      </span>
-      <div className="flex items-baseline">
-        <span className="text-red-500 font-bold text-base md:text-lg lg:text-xl">
-          {product.price.toLocaleString()}원
-        </span>
-        <span className="ml-2 text-xs text-red-500 lg:text-base">
-          ▼ {product.discount}%
-        </span>
-      </div>
-    </div>
+        {/* 가격 정보 */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center mt-2 sm:justify-start justify-end">
+          <span className="text-gray-500 line-through text-sm sm:mr-2">
+            {originalPrice}원
+          </span>
+          <div className="flex items-baseline">
+            <span className="text-red-500 font-bold text-base md:text-lg lg:text-xl">
+              {product.price.toLocaleString()}원s
+            </span>
+            <span className="ml-2 text-xs text-red-500 lg:text-base">
+              ▼ {product.discount}%
+            </span>
+          </div>
+        </div>
 
         {/* 별점, 리뷰 수, 좋아요 수 */}
         <div className="flex items-center justify-between mt-2 text-gray-700 text-xs sm:text-sm">
