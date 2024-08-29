@@ -19,7 +19,7 @@ function MobileSubCategorybar({ categories }) {
             }`}
             onClick={() => handleCategoryClick(category.id)}
           >
-            {category.name}
+            {category.cateroyName}
           </button>
         ))}
       </div>
