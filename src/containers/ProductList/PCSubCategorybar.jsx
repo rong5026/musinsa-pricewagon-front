@@ -10,7 +10,7 @@ function PCSubCategorybar({ categories }) {
           {categories.map(category => (
             <li
               key={category.id}
-              className="py-3 px-5 bg-gradient-to-r from-white to-gray-50 hover:from-gray-100 hover:to-gray-200 hover:shadow-md  border-gray-200 rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
+              className="py-3 px-5 bg-gradient-to-r from-white to-gray-50 hover:from-gray-100 hover:to-gray-200 hover:shadow-  border-gray-200 rounded-lg cursor-pointer transition-all duration-300 ease-in-out"
             >
               {category.name}
             </li>

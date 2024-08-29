@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   FaStar,
   FaHeart,
@@ -11,8 +11,27 @@ import PriceGraph from '../../components/Graph/PriceGraph';
 import CustomButton from '../../components/Button/CustomButton';
 import PriceInfoCard from './PriceInfoCard';
 import RatingInfo from './RatingInfo';
+import { useParams } from 'react-router-dom';
 
 function ProductDetail() {
+  const { id } = useParams(); // URL에서 상품 ID 추출
+  const [product, setProduct] = useState(null);
+
+  useEffect(() => {
+    // 개별 상품 정보 요청 API
+    async function fetchProductInfo() {
+      try {
+        const response = await fetch(`/api/products/${id}`);
+        const data = await response.json();
+      setProduct(data);
+
+      } catch (error) {
+        console.log('개별상품 데이터 오류:' , error);
+      }
+      fetchProductInfo();
+    }
+  }, [id]);
+  
   return (
     <div className="bg-gray-100 max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
       {/* 상단 제품 이미지 및 설명 */}
