@@ -1,18 +1,42 @@
 import React from 'react';
 import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 function Product({ product, className }) {
-  // 원래 가격 계산
+  const navigate = useNavigate();
+
+  function getShopBaseUrl(shopType) {
+    switch (shopType) {
+      case 'MUSINSA':
+        return 'https://image.msscdn.net';
+      case 'BRANDI':
+        return 'https://uniqlo.com';
+      case 'NIKE':
+        return 'https://nike.com';
+      default:
+        return 'https://defaultshop.com';
+    }
+  }
+
+  // 할인가격 계산
   const discount = Math.round(
     ((product.originPrice - product.salePrice) / product.originPrice) * 100
   );
 
+  const handleProductClick = () => {
+    navigate(`/${product.shopType.toLowerCase()}/products/${product.productNumber}`); 
+  };
+
+  const baseImageUrl = getShopBaseUrl(product.shopType);
+  const fullImageUrl = `${baseImageUrl}${product.imgUrl}`;
+
   return (
     <div
       className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg ${className}`}
+      onClick={handleProductClick} 
     >
       <img
-        src={product.imgUrl}
+        src={fullImageUrl}
         alt={product.name}
         className="w-full h-36 md:h-40 lg:h-48 object-cover transition-transform duration-300 hover:scale-110"
       />
@@ -55,7 +79,7 @@ function Product({ product, className }) {
           </div>
           <div className="flex items-center">
             <FaBookmark className="text-blue-500 mr-1" />
-            <span className="font-semibold">{product.scrap}</span>
+            <span className="font-semibold">{10}</span>
           </div>
         </div>
       </div>
