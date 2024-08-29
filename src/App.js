@@ -1,7 +1,6 @@
 import './App.css';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header/Header';
-import MobileNavBar from './components/Navbar/MobileNavBar';
 import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 import ProductDeatil from './containers/ProductDetail/ProductDeatil';
@@ -19,7 +18,6 @@ function App() {
             <Route path='/:shoptype/category/:id' element={<ProductCategoryPage/>} />
           </Routes>
         </main>
-        {/* <MobileNavBar /> */}
         <Footer />
       </div>
     </Router>

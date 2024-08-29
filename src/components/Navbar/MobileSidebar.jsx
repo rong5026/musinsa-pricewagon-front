@@ -21,21 +21,21 @@ import {
   FaBoxOpen, 
   FaChevronDown,
 } from 'react-icons/fa';
-
+import { Link } from 'react-router-dom'; 
 
 const menuItems = [
   { 
     name: '상품종류',
     icon: <FaBoxOpen />,
-    subItems: [
-      { name: '상의', icon: <FaTshirt /> },
-      { name: '아우터', icon: <GiMonclerJacket /> },
-      { name: '바지', icon: <PiPantsFill /> },
-      { name: '원피스', icon: <FaFemale /> },
-      { name: '신발', icon: <GiConverseShoe /> },
-      { name: '가방', icon: <FaShoppingBag /> },
-      { name: '패션소품', icon: <FaHatCowboy /> },
-      { name: '뷰티', icon: <FaHeartbeat /> },
+    categories: [
+      { id : 1, name: '상의', icon: <FaTshirt /> },
+      { id : 2, name: '아우터', icon: <GiMonclerJacket /> },
+      { id : 3, name: '바지', icon: <PiPantsFill /> },
+      { id : 4, name: '원피스', icon: <FaFemale /> },
+      { id : 5, name: '신발', icon: <GiConverseShoe /> },
+      { id : 6, name: '가방', icon: <FaShoppingBag /> },
+      { id : 7, name: '패션소품', icon: <FaHatCowboy /> },
+      { id : 8, name: '뷰티', icon: <FaHeartbeat /> },
     ]
   },
   { name: '상품 등록', icon: <FaPlus /> },
@@ -44,7 +44,7 @@ const menuItems = [
   { name: '로그인', icon: <FaSignInAlt /> },
 ];
 
-function PCNavbar({ isSidebarOpen, toggleSidebar }) {
+function MobileSidebar({ isSidebarOpen, toggleSidebar }) {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
 
@@ -54,7 +54,6 @@ function PCNavbar({ isSidebarOpen, toggleSidebar }) {
     opacity: isDropdownOpen ? 1 : 0,
     overflow: 'hidden',
   });
-
 
   return (
     <div
@@ -72,7 +71,7 @@ function PCNavbar({ isSidebarOpen, toggleSidebar }) {
       <nav className="mt-6 flex-grow">
         <ul className="space-y-2">
           {menuItems.map((item) =>
-            item.subItems ? (
+            item.categories ? (
               <li key={item.name} className="px-4 rounded-lg cursor-pointer transition-colors duration-200">
                 <div
                   className="flex items-center justify-between hover:bg-gray-700 rounded-lg"
@@ -90,14 +89,16 @@ function PCNavbar({ isSidebarOpen, toggleSidebar }) {
                 </div>
                 
                 <animated.ul style={dropdownAnimation} className="mt-2 ml-4 space-y-2 max-h-840:grid max-h-840:grid-cols-2 max-h-840:gap-4">
-                  {item.subItems.map((subItem) => (
-                    <li
-                      key={subItem.name}
+                  {item.categories.map((category) => (
+                    <Link
+                      to={`musinsa/category/${category.id}`} // 카테고리 id에 따라 페이지 이동
+                      key={category.name}
+                      onClick={toggleSidebar}
                       className="flex items-center px-4 py-2 hover:bg-gray-600 rounded-lg cursor-pointer transition-colors duration-300"
                     >
-                      <span className="mr-2">{subItem.icon}</span>
-                      {subItem.name}
-                    </li>
+                      <span className="mr-2">{category.icon}</span>
+                      {category.name}
+                    </Link>
                   ))}
                 </animated.ul>
               </li>
@@ -127,4 +128,4 @@ function PCNavbar({ isSidebarOpen, toggleSidebar }) {
   );
 }
 
-export default PCNavbar;
+export default MobileSidebar;
