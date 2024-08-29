@@ -9,7 +9,7 @@ function MobileSubCategorybar({ categories }) {
   return (
     <div className="lg:hidden bg-white p-4">
       <div className="flex overflow-x-scroll scrollbar-hide space-x-2">
-        {categories.map(category => (
+        {categories.categoryList.map(category => (
           <button
             key={category.id}
             className={`px-4 py-2 whitespace-nowrap rounded-xl transition-colors duration-300 ${
