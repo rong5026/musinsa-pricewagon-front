@@ -33,7 +33,7 @@ function BestProductsList() {
           {
             params: {
               page: 0,
-              size: 20,
+              size: 8,
             },
           }
         );

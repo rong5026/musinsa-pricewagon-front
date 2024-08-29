@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   FaStar,
   FaHeart,
@@ -12,26 +12,37 @@ import CustomButton from '../../components/Button/CustomButton';
 import PriceInfoCard from './PriceInfoCard';
 import RatingInfo from './RatingInfo';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import { getShopBaseUrl } from '../../\butils/baseURL';
 
 function ProductDetail() {
-  const { id } = useParams(); // URL에서 상품 ID 추출
-  const [product, setProduct] = useState(null);
+  const { id, shoptype } = useParams(); // URL에서 상품 ID 추출
+  const [product, setProduct] = useState([]);
+  const [fullImageUrl, setFullImageUrl] = useState('');
 
   useEffect(() => {
     // 개별 상품 정보 요청 API
-    async function fetchProductInfo() {
-      try {
-        const response = await fetch(`/api/products/${id}`);
-        const data = await response.json();
-      setProduct(data);
 
+    const fetchProductInfo = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8080/api/v1/products/${shoptype.toUpperCase()}/${id}`
+        );
+        setProduct(response.data);
+        console.log('개별 상품 요청 성공');
+
+        // 통신 후 baseImageUrl 및 fullImageUrl 계산
+        const baseImageUrl = getShopBaseUrl(shoptype.toUpperCase());
+        const imgURL = response.data.basicProductInfo.imgUrl;
+        setFullImageUrl(`${baseImageUrl}${imgURL}`);
+      
       } catch (error) {
-        console.log('개별상품 데이터 오류:' , error);
+        console.log('개발 상품 요청 오류:', error);
       }
-      fetchProductInfo();
-    }
-  }, [id]);
-  
+    };
+    fetchProductInfo();
+  }, [id, shoptype]);
+
   return (
     <div className="bg-gray-100 max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
       {/* 상단 제품 이미지 및 설명 */}
@@ -39,7 +50,7 @@ function ProductDetail() {
         {/* 제품 이미지 */}
         <div className="flex-shrink-0 rounded-lg overflow-hidden md:w-1/2">
           <img
-            src="https://image.msscdn.net/images/goods_img/20200818/1551840/1551840_1_500.jpg"
+            src={fullImageUrl}
             alt="Pantene Biotin Treatment"
             className="w-full h-full object-cover rounded-lg"
           />
@@ -55,8 +66,7 @@ function ProductDetail() {
               </span>
               {/* 카테고리 */}
 
-              <h2 className="text-gray-500 text-sm">바지 {">"} 반바지 </h2>
-             
+              <h2 className="text-gray-500 text-sm">바지 {'>'} 반바지 </h2>
             </div>
             <h1 className="text-2xl font-bold text-gray-800">
               [쿠팡] 🚀 팬틴 비오틴 볼륨 케어 트리트먼트, 220ml, 2개
