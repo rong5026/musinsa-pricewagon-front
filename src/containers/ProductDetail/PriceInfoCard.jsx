@@ -18,7 +18,7 @@ const PriceInfoCard = ({ label, value, icon, color }) => {
         </div>
 
         <div className="flex items-center justify-center space-x-2">
-          <p className={`text-xl font-bold ${color}`}>{value}</p>
+          <p className={`text-xl font-bold ${color}`}>{value.toLocaleString()}</p>
         </div>
       </div>
 

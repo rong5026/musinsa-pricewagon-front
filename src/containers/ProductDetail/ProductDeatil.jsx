@@ -17,7 +17,10 @@ import { getShopBaseUrl } from '../../\butils/baseURL';
 
 function ProductDetail() {
   const { id, shoptype } = useParams(); // URL에서 상품 ID 추출
-  const [product, setProduct] = useState([]);
+  const [productInfo, setProductInfo] = useState(null);
+  const [productDetail, setProductDetail] = useState(null);
+  const [productHistoryList, setProductHistoryList] = useState(null);
+
   const [fullImageUrl, setFullImageUrl] = useState('');
 
   useEffect(() => {
@@ -28,7 +31,10 @@ function ProductDetail() {
         const response = await axios.get(
           `http://localhost:8080/api/v1/products/${shoptype.toUpperCase()}/${id}`
         );
-        setProduct(response.data);
+        setProductInfo(response.data.basicProductInfo);
+        setProductDetail(response.data.productDetail);
+        setProductHistoryList(response.data.productHistoryList);
+
         console.log('개별 상품 요청 성공');
 
         // 통신 후 baseImageUrl 및 fullImageUrl 계산
@@ -43,6 +49,15 @@ function ProductDetail() {
     fetchProductInfo();
   }, [id, shoptype]);
 
+  // 모든 데이터가 로드되지 않았을 때 로딩 표시
+  if (!productInfo || !productDetail || !productHistoryList) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <p className="text-xl font-bold">Loading...</p>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-100 max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
       {/* 상단 제품 이미지 및 설명 */}
@@ -51,7 +66,7 @@ function ProductDetail() {
         <div className="flex-shrink-0 rounded-lg overflow-hidden md:w-1/2">
           <img
             src={fullImageUrl}
-            alt="Pantene Biotin Treatment"
+            alt={productInfo.name}
             className="w-full h-full object-cover rounded-lg"
           />
         </div>
@@ -62,29 +77,29 @@ function ProductDetail() {
             {/* 브랜드 및 상품명 */}
             <div className="mb-2 flex items-center space-x-4">
               <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded">
-                쿠팡
+                {productInfo.brand}
               </span>
               {/* 카테고리 */}
 
               <h2 className="text-gray-500 text-sm">바지 {'>'} 반바지 </h2>
             </div>
             <h1 className="text-2xl font-bold text-gray-800">
-              [쿠팡] 🚀 팬틴 비오틴 볼륨 케어 트리트먼트, 220ml, 2개
+              [{productInfo.brand}] 🚀 {productInfo.name}
             </h1>
             {/* 가격 정보 및 할인율 */}
             <div className="flex items-center text-xl font-bold mb-10 mt-10">
               <span className="mr-2 text-2xl text-red-600">▼ 42%</span>
               <div className="ml-auto text-right">
                 <span className="text-lg">현재가 </span>
-                <span className="text-3xl text-gray-900">9,300원</span>
+                <span className="text-3xl text-gray-900">{productHistoryList[0].price.toLocaleString()}원</span>
               </div>
             </div>
 
             {/* 별점, 리뷰 수, 좋아요 수 */}
             <RatingInfo
-              rating={4.5}
-              reviews={1234}
-              likes={567}
+              rating={productInfo.starScore}
+              reviews={productInfo.reviewCount}
+              likes={productInfo.likeCount}
               bookmarks={234}
             />
 
@@ -92,7 +107,8 @@ function ProductDetail() {
             <div className="text-sm text-gray-500 text-left mt-2">
               가격 수집 일자:{' '}
               <span className="font-medium text-gray-700">
-                2024년 7월 20일 14:30
+                {/* 2024년 7월 20일 14:30 */}
+                {productHistoryList[0].createdAt}
               </span>
             </div>
           </div>
@@ -101,19 +117,19 @@ function ProductDetail() {
           <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-2">
             <PriceInfoCard
               label="평균가"
-              value="15,944원"
+              value={productDetail.middlePrice}
               icon={<FaEquals />}
               color="text-gray-800"
             />
             <PriceInfoCard
               label="역대 최고가"
-              value="18,400원"
+              value={productDetail.highPrice}
               icon={<FaArrowUp />}
               color="text-green-500"
             />
             <PriceInfoCard
               label="역대 최저가"
-              value="8,100원"
+              value={productDetail.lowPrice}
               icon={<FaArrowDown />}
               color="text-red-500"
             />
