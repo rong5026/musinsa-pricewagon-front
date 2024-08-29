@@ -1,6 +1,6 @@
 import React from 'react';
 
-function SearchButton() {
+function MobileSearchButton() {
   return (
     <button className="flex items-center justify-center flex-shrink-0 ga4_main_top_search end-0 focus:outline-none lg:hidden basis-[24px] w-[24px] h-[24px]">
       <svg
@@ -20,4 +20,4 @@ function SearchButton() {
   );
 }
 
-export default SearchButton;
+export default MobileSearchButton;

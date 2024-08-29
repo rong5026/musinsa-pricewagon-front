@@ -1,7 +1,7 @@
 import React from 'react';
 import { IoIosSearch } from "react-icons/io";
 
-function SearchBar() {
+function PCSearchBar() {
   return (
     <div className=" relative hidden ms-7 me-7 xl:ms-9 lg:block flex-1">
       <form className="w-full relative flex items-center h-10 overflow-hidden rounded-md bg-gray-100 px-3 py-[10px] lg:px-5 space-x-2">
@@ -18,4 +18,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar;
+export default PCSearchBar;

@@ -1,9 +1,9 @@
 import React from 'react';
 import MenuButton from './Button/Menu';
-import SearchButton from './Button/Search';
+import MobileSearchButton from './Button/MobileSearchButton';
 import Category from './Button/Category';
 import ButtonGroup from './Button/Group';
-import SearchBar from './SearchBar';
+import PCSearchBar from './PCSearchBar';
 import Title from './Title';
 import { useState } from 'react';
 import PCNavbar from '../Navbar/PCNavbar'
@@ -21,10 +21,14 @@ function CommonHeader() {
         <MenuButton toggleSidebar={toggleSidebar} />
         <PCNavbar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
         <Title />
-        <SearchBar />
-        <ButtonGroup />
-        <SearchButton />
+        {/* PC 버전 상품 찾기 */}
+        <PCSearchBar />
+        {/* 문의하기, 상품등록, 마이페이지 */}
+        <ButtonGroup /> 
+        {/* 모바일 버전 상품 찾기  */}
+        <MobileSearchButton />
       </div>
+
       <Category />
     </header>
   );

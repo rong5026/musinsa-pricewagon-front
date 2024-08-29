@@ -59,7 +59,7 @@ function ProductDetail() {
   }
 
   return (
-    <div className="bg-gray-100 max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
+    <div className="bg-gray-50 max-w-4xl mx-auto p-6 rounded-lg shadow-lg">
       {/* 상단 제품 이미지 및 설명 */}
       <div className="flex flex-col md:flex-row md:space-x-6 items-stretch">
         {/* 제품 이미지 */}

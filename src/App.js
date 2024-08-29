@@ -5,7 +5,7 @@ import MobileNavBar from './components/Navbar/MobileNavBar';
 import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 import ProductDeatil from './containers/ProductDetail/ProductDeatil';
-import ProductList from './containers/ProductList/ProductList';
+import ProductCategoryPage from './containers/ProductCategoryPage/ProductCategoryPage';
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           <Routes>
             <Route exact path="/" element={<MainPage />} />
             <Route path="/:shoptype/products/:id" element={<ProductDeatil />} />
-            <Route path='/product' element={<ProductList/>} />
+            <Route path='/:shoptype/category/:id' element={<ProductCategoryPage/>} />
           </Routes>
         </main>
         {/* <MobileNavBar /> */}

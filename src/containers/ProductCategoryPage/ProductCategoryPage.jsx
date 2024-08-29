@@ -3,7 +3,7 @@ import ProductDisplay from '../../components/Product/ProductDisplay';
 import PCSubCategorybar from './PCSubCategorybar';
 import MobileSubCategorybar from './MobileSubCategorybar';
 
-function ProductList() {
+function ProductCategoryPage() {
 
   const categories = [
     { id: 1, name: '코트' },
@@ -183,4 +183,4 @@ function ProductList() {
   );
 }
 
-export default ProductList;
+export default ProductCategoryPage;
