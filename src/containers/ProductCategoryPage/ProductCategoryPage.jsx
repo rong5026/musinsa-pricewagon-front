@@ -50,6 +50,13 @@ function ProductCategoryPage() {
     }
   }, [id, shoptype, sub_category_id]);
 
+  // categories가 로드되지 않았다면 데이터 요청 후 로딩 상태 표시
+  useEffect(() => {
+    if (!categories) {
+      fetchCategoryDataList();
+    }
+  }, [categories]);
+
   // categories가 로드되지 않았다면 로딩 상태를 표시
   if (!categories) {
     return <div>Loading...</div>;
