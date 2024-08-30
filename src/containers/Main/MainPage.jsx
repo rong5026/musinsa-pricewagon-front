@@ -13,8 +13,7 @@ function MainPage() {
       <MainBanner/>
       <BestProductsList/>
       <DivideLine/>
-      {/* <ProductRegistration/>
-      <DivideLine/> */}
+      {/* <ProductRegistration/> */}
       <UpdatedProductList/>
       <PromoBanner/>
 

@@ -9,7 +9,7 @@ import {
 } from 'react-icons/fa';
 import { PiPantsFill } from 'react-icons/pi';
 import { GiMonclerJacket, GiConverseShoe } from 'react-icons/gi';
-import { Link } from 'react-router-dom'; // react-router-dom에서 Link를 import
+import { Link } from 'react-router-dom'; 
 
 const categories = [
   { id : 1, name: '상의', icon: <FaTshirt /> },
@@ -22,7 +22,7 @@ const categories = [
   { id : 8, name: '뷰티', icon: <FaHeartbeat /> },
 ];
 
-function Category() {
+function PCTopNavbar() {
   return (
     <div className="bg-white md:px-8 2xl:px-8 lg:flex lg:h-16 items-center max-w-[1024px] hidden headerBottom mx-auto box-content ease-in-out border-b border-jnGray-300">
       <nav className="-ml-7 flex w-full relative lg:flex ps-3.5">
@@ -32,7 +32,7 @@ function Category() {
             className="cursor-pointer flex items-center group relative"
           >
             <Link
-               to={`musinsa/category/${category.id}`} // 카테고리 id에 따라 페이지 이동
+              to={`musinsa/category/${category.id}`} // 카테고리 id에 따라 페이지 이동
               className="relative inline-flex items-center px-3 py-2 text-sm font-normal xl:text-base text-heading xl:px-4 hover:text-black transition duration-300 ease-in-out transform hover:scale-105 group-hover:text-green-600"
             >
               <span className="mr-2 text-xl group-hover:rotate-12 transition-transform duration-300">
@@ -49,4 +49,4 @@ function Category() {
   );
 }
 
-export default Category;
+export default PCTopNavbar;
