@@ -1,7 +1,7 @@
 import React from 'react';
 import MenuButton from './Button/Menu';
 import MobileSearchButton from './Button/MobileSearchButton';
-import Category from './Button/Category';
+import PCTopNavbar from '../Navbar/PCTopNavbar';
 import ButtonGroup from './Button/Group';
 import PCSearchBar from './PCSearchBar';
 import Title from './Title';
@@ -29,7 +29,7 @@ function CommonHeader() {
         <MobileSearchButton />
       </div>
 
-      <Category />
+      <PCTopNavbar />
     </header>
   );
 }
