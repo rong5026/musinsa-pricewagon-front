@@ -21,33 +21,12 @@ import {
 // ];
 
 function PriceGraph({ data }) {
-  const [formattedData, setFormattedData] = useState([]);
-
-  useEffect(() => {
-    // createdAt 값을 변환하는 함수
-    const formatDate = dateString => {
-      const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
-      const date = new Date(dateString);
-      return date
-        .toLocaleDateString('ko-KR', options)
-        .replace(/\./g, '-')
-        .replace(/\s/g, '');
-    };
-
-    // data 배열의 createdAt 값을 변환하여 새로운 배열 생성
-    const transformedData = data.map(item => ({
-      ...item,
-      createdAt: formatDate(item.createdAt),
-    }));
-
-    setFormattedData(transformedData);
-  }, [data]);
 
   return (
     <div className="w-full h-72 sm:h-72 md:h-80 lg:h-96 mt-8">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={formattedData}
+          data={data}
           margin={{ top: 20, right: 30, left: -20, bottom: 10 }}
         >
           <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
