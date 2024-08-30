@@ -146,7 +146,7 @@ function ProductDetail() {
       {/* 가격 그래프 */}
       <div className="mt-10 bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">가격 그래프</h2>
-        <PriceGraph />
+        <PriceGraph data={productHistoryList}/>
       </div>
     </div>
   );
