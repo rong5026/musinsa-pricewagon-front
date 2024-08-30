@@ -20,6 +20,7 @@ function ProductDetail() {
   const [productInfo, setProductInfo] = useState(null);
   const [productDetail, setProductDetail] = useState(null);
   const [productHistoryList, setProductHistoryList] = useState(null);
+  const [productCategoryList, setProductCategoryList] = useState(null);
   const [fullImageUrl, setFullImageUrl] = useState('');
 
   useEffect(() => {
@@ -29,11 +30,16 @@ function ProductDetail() {
           `http://localhost:8080/api/v1/products/${shoptype.toUpperCase()}/${id}`
         );
 
-        const { basicProductInfo, productDetail, productHistoryList } =
-          response.data;
+        const {
+          basicProductInfo,
+          productDetail,
+          productHistoryList,
+          parentAndChildCategoryDTO,
+        } = response.data;
 
         setProductInfo(basicProductInfo);
         setProductDetail(productDetail);
+        setProductCategoryList(parentAndChildCategoryDTO);
         // 날짜 형식 변환
         setProductHistoryList(
           productHistoryList.map(history => ({
@@ -81,7 +87,12 @@ function ProductDetail() {
               <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-1 px-2.5 py-0.5 rounded">
                 {productInfo.brand}
               </span>
-              <h2 className="text-gray-500 text-sm">바지 {'>'} 반바지</h2>
+              {/* 카테고리 */}
+              <h2 className="text-gray-500 text-sm">
+                {productCategoryList.parentCategory.cateroyName} 
+                {' > '} 
+                {productCategoryList.childCategory.cateroyName}
+              </h2>
             </div>
             <h1 className="text-2xl font-bold text-gray-800">
               [{productInfo.brand}] 🚀 {productInfo.name}
