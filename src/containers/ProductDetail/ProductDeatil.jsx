@@ -137,7 +137,7 @@ function ProductDetail() {
 
           {/* 구매 및 찜하기 버튼 */}
           <div className="bg-white mt-2 flex items-center justify-between space-x-4 p-4 rounded-lg shadow-md">
-            <CustomButton label="구매하기" size="large" />
+            <CustomButton label="구매하기" size="large" clickUrl={productDetail.productUrl}/>
             <CustomButton label="찜하기" size="large" />
           </div>
         </div>
