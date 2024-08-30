@@ -1,22 +1,11 @@
 import React from 'react';
 import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import { getShopBaseUrl } from '../../\butils/baseURL';
 
 function Product({ product, className }) {
   const navigate = useNavigate();
 
-  function getShopBaseUrl(shopType) {
-    switch (shopType) {
-      case 'MUSINSA':
-        return 'https://image.msscdn.net';
-      case 'BRANDI':
-        return 'https://uniqlo.com';
-      case 'NIKE':
-        return 'https://nike.com';
-      default:
-        return 'https://defaultshop.com';
-    }
-  }
 
   // 할인가격 계산
   const discount = Math.round(
@@ -32,7 +21,7 @@ function Product({ product, className }) {
 
   return (
     <div
-      className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-lg ${className}`}
+      className={`bg-white rounded-lg shadow-md overflow-hidden transform transition duration-300 hover:cursor-pointer hover:scale-105 hover:shadow-lg ${className}`}
       onClick={handleProductClick} 
     >
       <img
@@ -46,7 +35,7 @@ function Product({ product, className }) {
         </div>
         {/* 제목 컨테이너에 고정 높이 설정 */}
         <div className="h-12 sm:h-16 md:h-20">
-          <h2 className="text-base md:text-lg font-semibold leading-tight">
+          <h2 className="text-sm sm:text-base md:text-lg font-semibold leading-tight">
             {product.name}
           </h2>
         </div>
