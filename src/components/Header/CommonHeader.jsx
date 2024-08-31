@@ -2,11 +2,11 @@ import React from 'react';
 import MenuButton from './Button/Menu';
 import MobileSearchButton from './Button/MobileSearchButton';
 import PCTopNavbar from '../Navbar/PCTopNavbar';
-import ButtonGroup from './Button/Group';
 import PCSearchBar from './PCSearchBar';
 import Title from './Title';
 import { useState } from 'react';
 import MobileSidebar from '../Navbar/MobileSidebar'
+import UserMenu from './UserMenu';
 
 function CommonHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -24,7 +24,7 @@ function CommonHeader() {
         {/* PC 버전 상품 찾기 */}
         <PCSearchBar />
         {/* 문의하기, 상품등록, 마이페이지 */}
-        <ButtonGroup /> 
+        <UserMenu /> 
         {/* 모바일 버전 상품 찾기  */}
         <MobileSearchButton />
       </div>
