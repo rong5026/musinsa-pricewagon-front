@@ -11,7 +11,6 @@ function App() {
     <Router>
       <div className="wrapper">
         <Header />
-        {/* <main className="pt-36 pb-12 sm:pt-20 lg:pt-36 xl:pt-40 sm:px-6 max-w-6xl"> */}
         <main className="flex-grow pt-36 pb-12 sm:pt-20 lg:pt-36 xl:pt-40 sm:px-6 max-w-6xl mx-auto">
           <Routes>
             <Route exact path="/" element={<MainPage />} />
