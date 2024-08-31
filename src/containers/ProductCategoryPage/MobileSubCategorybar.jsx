@@ -1,26 +1,28 @@
 import React,  { useState } from 'react';
+import { Link } from 'react-router-dom'; 
 
-function MobileSubCategorybar({ categories }) {
-  const [activeCategory, setActiveCategory] = useState(null);
+function MobileSubCategorybar({ categories, shoptype, sub_category_id}) {
+  const [activeCategoryId, setActiveCategoryId] = useState(sub_category_id || null);
 
   const handleCategoryClick = categoryId => {
-    setActiveCategory(categoryId);
+    setActiveCategoryId(categoryId);
   };
   return (
     <div className="lg:hidden bg-white p-4">
       <div className="flex overflow-x-scroll scrollbar-hide space-x-2">
         {categories.categoryList.map(category => (
-          <button
+          <Link
             key={category.id}
+            to={`/${shoptype}/category/${categories.id}/sub_category/${category.id}`}
             className={`px-4 py-2 whitespace-nowrap rounded-xl transition-colors duration-300 ${
-              activeCategory === category.id
+              activeCategoryId === category.id
                 ? 'bg-green-500 text-white'
                 : 'bg-gray-100 text-gray-600'
             }`}
             onClick={() => handleCategoryClick(category.id)}
           >
             {category.cateroyName}
-          </button>
+          </Link>
         ))}
       </div>
     </div>

@@ -95,7 +95,7 @@ function ProductDetail() {
               </h2>
             </div>
             <h1 className="text-2xl font-bold text-gray-800">
-              [{productInfo.brand}] 🚀 {productInfo.name}
+              [{productInfo.brand}] {productInfo.name}
             </h1>
             <div className="flex items-center text-xl font-bold mb-10 mt-10">
               <span className="mr-2 text-2xl text-red-600">▼ 42%</span>

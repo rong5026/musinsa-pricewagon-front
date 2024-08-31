@@ -21,6 +21,7 @@ function ProductCategoryPage() {
       ]);
       setCategories(categoryResponse.data);
       setProducts(productResponse.data);
+      console.log(categoryResponse.data);
 
       console.log('카테고리, 카테고리 상품 리스트 요청 성공');
     } catch (error) {
@@ -69,7 +70,11 @@ function ProductCategoryPage() {
         shoptype={'musinsa'}
         sub_category_id={sub_category_id}
       />
-      <MobileSubCategorybar categories={categories} />
+      <MobileSubCategorybar
+        categories={categories}
+        shoptype={'musinsa'}
+        sub_category_id={sub_category_id}
+      />
 
       <div className="p-4">
         <ProductDisplay products={products} />
