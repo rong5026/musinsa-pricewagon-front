@@ -4,6 +4,7 @@ import PCSubCategorybar from './PCSubCategorybar';
 import MobileSubCategorybar from './MobileSubCategorybar';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
+import Loading from '../../components/Loading/Loading';
 
 function ProductCategoryPage() {
   const [categories, setCategories] = useState(null);
@@ -60,9 +61,7 @@ function ProductCategoryPage() {
 
   // categories가 로드되지 않았다면 로딩 상태를 표시
   if (!categories) {
-    return  <div className="flex justify-center items-center h-screen">
-    <p className="text-xl font-bold">Loading...</p>
-  </div>;
+   return <Loading/>
   }
 
   return (

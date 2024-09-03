@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ProductList from '../../components/Product/ProductDisplay';
 import axios from 'axios';
+import Loading from '../../components/Loading/Loading';
 
 // 더보기 버튼
 function AdditioanlButton() {
@@ -149,7 +150,8 @@ function BestProductsList() {
         {products.length > 0 ? (
           <ProductList products={products} />
         ) : (
-          <p>Loading...</p> // 로딩 상태를 표시
+          // <p>Loading...</p> // 로딩 상태를 표시
+          <Loading/>
         )}
         <AdditioanlButton />
       </div>
