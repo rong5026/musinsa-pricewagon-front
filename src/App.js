@@ -5,6 +5,7 @@ import MainPage from './containers/Main/MainPage';
 import Footer from './components/Footer/Footer';
 import ProductDeatil from './containers/ProductDetail/ProductDeatil';
 import ProductCategoryPage from './containers/ProductCategoryPage/ProductCategoryPage';
+import ResponsiveFontPriceComparisonComponent from  './test';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/:shoptype/products/:id" element={<ProductDeatil />} />
             <Route path="/:shoptype/category/:id" element={<ProductCategoryPage/>} />
             <Route path="/:shoptype/category/:id/sub_category/:sub_category_id" element={<ProductCategoryPage/>}/>
+            <Route path='/test' element={<ResponsiveFontPriceComparisonComponent/>} />
           </Routes>
         </main>
         <Footer />
