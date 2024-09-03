@@ -12,12 +12,12 @@ import { GiMonclerJacket, GiConverseShoe } from 'react-icons/gi';
 import { Link } from 'react-router-dom'; 
 
 const categories = [
-  { id : 2, name: '상의', icon: <FaTshirt /> },
-  { id : 10, name: '아우터', icon: <GiMonclerJacket /> },
+  { id : 1, name: '상의', icon: <FaTshirt /> },
+  { id : 5, name: '아우터', icon: <GiMonclerJacket /> },
   { id : 9, name: '바지', icon: <PiPantsFill /> },
-  { id : 11, name: '원피스', icon: <FaFemale /> },
+  { id : 15, name: '원피스', icon: <FaFemale /> },
   { id : 12, name: '신발', icon: <GiConverseShoe /> },
-  { id : 13, name: '가방', icon: <FaShoppingBag /> },
+  { id : 21, name: '가방', icon: <FaShoppingBag /> },
   { id : 14, name: '패션소품', icon: <FaHatCowboy /> },
   { id : 15, name: '뷰티', icon: <FaHeartbeat /> },
 ];

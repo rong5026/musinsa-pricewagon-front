@@ -40,7 +40,6 @@ function BestProductsList() {
         );
         setProducts(response.data);
         console.log('상품 리스트 요청 성공');
-        console.log(products)
       
       } catch (error) {
         console.log('상품 리스트 요청 오류:', error);
