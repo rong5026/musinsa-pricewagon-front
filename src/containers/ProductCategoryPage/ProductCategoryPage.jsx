@@ -15,9 +15,9 @@ function ProductCategoryPage() {
   const fetchCategoryDataList = async () => {
     try {
       const [categoryResponse, productResponse] = await Promise.all([
-        axios.get(`http://localhost:8080/api/v1/category/${id}`),
+        axios.get(`${process.env.REACT_APP_API_URL}/api/v1/category/${id}`),
         axios.get(
-          `http://localhost:8080/api/v1/products/${shoptype.toUpperCase()}/category/${id}`
+          `${process.env.REACT_APP_API_URL}/api/v1/products/${shoptype.toUpperCase()}/category/${id}`
         ),
       ]);
       setCategories(categoryResponse.data);
@@ -34,7 +34,7 @@ function ProductCategoryPage() {
   const fetchSubProductList = async () => {
     try {
       const response = await axios.get(
-        `http://localhost:8080/api/v1/products/${shoptype.toUpperCase()}/category/${sub_category_id}`
+      `${process.env.REACT_APP_API_URL}/api/v1/products/${shoptype.toUpperCase()}/category/${sub_category_id}`
       );
 
       setProducts(response.data);

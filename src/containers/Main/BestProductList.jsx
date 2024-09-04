@@ -31,7 +31,7 @@ function BestProductsList() {
     const fetchProductList = async () => {
       try {
         const response = await axios.get(
-          'http://localhost:8080/api/v1/products/MUSINSA',
+          `${process.env.REACT_APP_API_URL}/api/v1/products/MUSINSA`,
           {
             params: {
               page: 0,
