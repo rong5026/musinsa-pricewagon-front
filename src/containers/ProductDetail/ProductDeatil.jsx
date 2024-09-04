@@ -96,7 +96,7 @@ function ProductDetail() {
             </h1>
             <div className="flex items-center text-xl font-bold mb-10 mt-10">
               <div className="mr-5 text-left">
-                {/* <span className="text-lg">현재가 </span> */}
+                {/* <span className="text-base ">현재가 </span> */}
                 <span className="text-3xl text-gray-900">
                   {productHistoryList[0].price.toLocaleString()}원
                 </span>
