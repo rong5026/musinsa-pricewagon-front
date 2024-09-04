@@ -13,6 +13,12 @@ function VercelProduct({ product, className }) {
     return num > 999 ? (num / 1000).toFixed(1) + 'k' : num;
   };
 
+  const getPriceChange = (current, previous) => {
+    const diff = current - previous;
+    const percentage = ((diff / previous) * 100).toFixed(1);
+    return { diff, percentage };
+  };
+
   const handleProductClick = () => {
     navigate(
       `/${product.shopType.toLowerCase()}/products/${product.productNumber}`
@@ -42,33 +48,41 @@ function VercelProduct({ product, className }) {
           <span className="line-clamp-2">{product.name}</span>
         </h2>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 flex-grow">
-          <span className="text-lg   font-bold">
+          <span className="text-lg font-bold">
             {product.salePrice.toLocaleString()}원
           </span>
-          {0 == 0 && (
-            <span
-              className={`flex items-center text-xs ${
-                product.currentPrice > product.previousPrice
-                  ? 'text-green-500'
-                  : 'text-red-500'
-              }`}
-            >
-              {product.currentPrice > product.previousPrice ? (
-                <ArrowUpIcon strokeWidth={2} className="w-4 h-4 mr-1" />
-              ) : (
-                <ArrowDownIcon strokeWidth={2} className="w-4 h-4 mr-1" />
-              )}
-              <span className="text-sm lg:text-xs">
-                {Math.abs(0)}원
-              </span>
-              <span className="text-sm lg:text-xs">
-                ({20}%)
-              </span>
+          <span
+            className={`flex items-center text-xs ${
+              product.salePrice > product.previousPrice
+                ? 'text-green-500'
+                : 'text-red-500'
+            }`}
+          >
+            {product.salePrice > product.previousPrice ? (
+              <ArrowUpIcon strokeWidth={3} className="w-4 h-4 mr-1" />
+            ) : (
+              <ArrowDownIcon strokeWidth={3} className="w-4 h-4 mr-1" />
+            )}
+            <span className="text-sm lg:text-sm">
+              {' '}
+              {Math.abs(
+                getPriceChange(product.salePrice, product.previousPrice).diff
+              ).toLocaleString()}
+              원
             </span>
-          )}
+            <span className="text-sm lg:text-sm">
+              {' '}
+              (
+              {
+                getPriceChange(product.salePrice, product.previousPrice)
+                  .percentage
+              }
+              %)
+            </span>
+          </span>
         </div>
         <div className="text-xs text-gray-500 mb-2">
-          이전 가격: {product.salePrice.toLocaleString()}원
+          이전 가격: {product.previousPrice.toLocaleString()}원
         </div>
         <div className="flex items-center mb-3 text-xs">
           <FaStar className="w-4 h-4 text-yellow-400 fill-current" />
