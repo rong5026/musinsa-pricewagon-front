@@ -54,6 +54,7 @@ function ProductDetail() {
         const baseImageUrl = getShopBaseUrl(shoptype.toUpperCase());
         setFullImageUrl(`${baseImageUrl}${basicProductInfo.imgUrl}`);
 
+        console.log(response.data);
         console.log('개별 상품 요청 성공');
       } catch (error) {
         console.error('개별 상품 요청 오류:', error);
@@ -91,31 +92,40 @@ function ProductDetail() {
                 {productCategoryList.childCategory.cateroyName}
               </h2>
             </div>
-            <h1 className="text-2xl font-bold text-gray-800">
+            {/* 상품 제목 */}
+            <h1 className="text-2xl font-bold text-gray-800 mb-10">
               [{productInfo.brand}] {productInfo.name}
             </h1>
-            <div className="flex items-center text-xl font-bold mb-10 mt-10">
-              <div className="mr-5 text-left">
-                {/* <span className="text-base ">현재가 </span> */}
+
+
+
+            <div className="text-end text-gray-400 line-through">
+              {productInfo.previousPrice.toLocaleString()}원
+            </div>
+            <div className="flex items-center text-xl font-bold mb-5">
+              <span className="md:ml-auto sm:mr-5 text-2xl text-red-600">▼42%</span>
+              <div className="text-left ml-auto">
+                <span className="text-base ">현재가 </span>
                 <span className="text-3xl text-gray-900">
                   {productHistoryList[0].price.toLocaleString()}원
                 </span>
               </div>
-              <span className="mr-2 text-2xl text-red-600">▼ 42%</span>
             </div>
 
-            <RatingInfo
-              rating={productInfo.starScore}
-              reviews={productInfo.reviewCount}
-              likes={productInfo.likeCount}
-              bookmarks={234}
-            />
+            <div className="flex flex-col sm:items-end">
+              <RatingInfo
+                rating={productInfo.starScore}
+                reviews={productInfo.reviewCount}
+                likes={productInfo.likeCount}
+                bookmarks={234}
+              />
 
-            <div className="text-sm text-gray-500 text-left mt-2">
-              가격 수집 일자:{' '}
-              <span className="font-medium text-gray-700">
-                {productHistoryList[0].createdAt}
-              </span>
+              <div className="text-sm text-gray-500 text-left mt-2">
+                가격 수집 일자:{' '}
+                <span className="font-medium text-gray-700">
+                  {productHistoryList[0].createdAt}
+                </span>
+              </div>
             </div>
           </div>
 
