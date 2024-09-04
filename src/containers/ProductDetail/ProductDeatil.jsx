@@ -122,11 +122,11 @@ function ProductDetail() {
                 )}
                 <span>
                   {' '}
-                  (
+                  
                   {
                      getPriceChange(productInfo.salePrice, productInfo.previousPrice).percentage
                   }
-                  %)
+                  %
                 </span>
               </span>
               <div className="text-left ml-auto">
