@@ -43,14 +43,14 @@ function VercelProduct({ product, className }) {
         </h2>
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-2 flex-grow">
           <span className="text-lg   font-bold">
-            {product.originPrice.toLocaleString()}원
+            {product.salePrice.toLocaleString()}원
           </span>
           {0 == 0 && (
             <span
               className={`flex items-center text-xs ${
                 product.currentPrice > product.previousPrice
-                  ? 'text-red-500'
-                  : 'text-green-500'
+                  ? 'text-green-500'
+                  : 'text-red-500'
               }`}
             >
               {product.currentPrice > product.previousPrice ? (

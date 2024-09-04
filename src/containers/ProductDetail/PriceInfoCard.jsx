@@ -2,6 +2,10 @@ import React from 'react';
 import { FaArrowUp, FaArrowDown, FaEquals } from 'react-icons/fa';
 
 const PriceInfoCard = ({ label, value, icon, color }) => {
+  const formatNumber = num => {
+    return num > 999 ? (num / 1000).toFixed(1) + 'k' : num;
+  };
+
   return (
     <div className="bg-white p-4 rounded-lg shadow-md">
       {/* md 사이즈 이상일 때 적용되는 구조 */}
@@ -27,7 +31,7 @@ const PriceInfoCard = ({ label, value, icon, color }) => {
         <div className="flex items-center space-x-4">
           {icon && <span className={`text-lg ${color}`}>{icon}</span>}
           <div>
-            <p className="text-gray-500">{label}</p>
+            <p className="text-gray-500">{label}ㄴㅇ</p>
             <p className={`text-xl font-bold ${color}`}>{value}</p>
           </div>
         </div>
