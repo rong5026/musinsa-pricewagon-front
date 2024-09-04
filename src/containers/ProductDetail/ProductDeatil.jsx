@@ -14,6 +14,7 @@ import RatingInfo from './RatingInfo';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { getShopBaseUrl } from '../../\butils/baseURL';
+import Loading from '../../components/Loading/Loading';
 
 function ProductDetail() {
   const { id, shoptype } = useParams();
@@ -63,11 +64,7 @@ function ProductDetail() {
   }, [id, shoptype]);
 
   if (!productInfo || !productDetail || !productHistoryList) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <p className="text-xl font-bold">Loading...</p>
-      </div>
-    );
+    return <Loading />;
   }
 
   return (
@@ -89,8 +86,8 @@ function ProductDetail() {
               </span>
               {/* 카테고리 */}
               <h2 className="text-gray-500 text-sm">
-                {productCategoryList.parentCategory.cateroyName} 
-                {' > '} 
+                {productCategoryList.parentCategory.cateroyName}
+                {' > '}
                 {productCategoryList.childCategory.cateroyName}
               </h2>
             </div>
@@ -98,13 +95,13 @@ function ProductDetail() {
               [{productInfo.brand}] {productInfo.name}
             </h1>
             <div className="flex items-center text-xl font-bold mb-10 mt-10">
-              <span className="mr-2 text-2xl text-red-600">▼ 42%</span>
-              <div className="ml-auto text-right">
-                <span className="text-lg">현재가 </span>
+              <div className="mr-5 text-left">
+                {/* <span className="text-lg">현재가 </span> */}
                 <span className="text-3xl text-gray-900">
                   {productHistoryList[0].price.toLocaleString()}원
                 </span>
               </div>
+              <span className="mr-2 text-2xl text-red-600">▼ 42%</span>
             </div>
 
             <RatingInfo
