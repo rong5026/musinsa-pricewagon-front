@@ -24,6 +24,12 @@ function ProductDetail() {
   const [productCategoryList, setProductCategoryList] = useState(null);
   const [fullImageUrl, setFullImageUrl] = useState('');
 
+  const getPriceChange = (current, previous) => {
+    const diff = current - previous;
+    const percentage = Math.floor((diff / previous) * 100); // 소수점 제거
+    return { diff, percentage };
+  };
+
   useEffect(() => {
     const fetchProductInfo = async () => {
       try {
@@ -97,13 +103,32 @@ function ProductDetail() {
               [{productInfo.brand}] {productInfo.name}
             </h1>
 
-
-
             <div className="text-end text-gray-400 line-through">
               {productInfo.previousPrice.toLocaleString()}원
             </div>
             <div className="flex items-center text-xl font-bold mb-5">
-              <span className="md:ml-auto sm:mr-5 text-2xl text-red-600">▼42%</span>
+              <span
+                className={`md:ml-auto sm:mr-5 text-2x
+                ${
+                  productInfo.salePrice >= productInfo.previousPrice
+                    ? 'text-green-600'
+                    : 'text-red-600'
+                }`}
+              >
+                {productInfo.salePrice >= productInfo.previousPrice ? (
+                  <span>▲</span>
+                ) : (
+                  <span>▼</span>
+                )}
+                <span>
+                  {' '}
+                  (
+                  {
+                     getPriceChange(productInfo.salePrice, productInfo.previousPrice).percentage
+                  }
+                  %)
+                </span>
+              </span>
               <div className="text-left ml-auto">
                 <span className="text-base ">현재가 </span>
                 <span className="text-3xl text-gray-900">
