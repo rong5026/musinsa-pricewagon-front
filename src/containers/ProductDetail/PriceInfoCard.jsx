@@ -31,7 +31,7 @@ const PriceInfoCard = ({ label, value, icon, color }) => {
         <div className="flex items-center space-x-4">
           {icon && <span className={`text-lg ${color}`}>{icon}</span>}
           <div>
-            <p className="text-gray-500">{label}ㄴㅇ</p>
+            <p className="text-gray-500">{label}</p>
             <p className={`text-xl font-bold ${color}`}>{value}</p>
           </div>
         </div>
