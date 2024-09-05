@@ -26,7 +26,7 @@ function ProductDetail() {
 
   const getPriceChange = (current, previous) => {
     const diff = current - previous;
-    const percentage = Math.floor((diff / previous) * 100); // 소수점 제거
+    const percentage = ((diff / previous) * 100).toFixed(1);
     return { diff, percentage };
   };
 
@@ -132,7 +132,7 @@ function ProductDetail() {
               <div className="text-left ml-auto">
                 <span className="text-base ">현재가 </span>
                 <span className="text-3xl text-gray-900">
-                  {productHistoryList[0].price.toLocaleString()}원
+                  {productInfo.salePrice.toLocaleString()}원
                 </span>
               </div>
             </div>
