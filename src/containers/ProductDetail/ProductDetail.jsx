@@ -106,16 +106,16 @@ function ProductDetail() {
             <div className="text-end text-gray-400 line-through">
               {productInfo.previousPrice.toLocaleString()}원
             </div>
-            <div className="flex items-center text-xl font-bold mb-5">
+            <div className="flex items-end text-xl font-bold mb-5">
               <span
                 className={`md:ml-auto sm:mr-5 text-2x
                 ${
-                  productInfo.salePrice >= productInfo.previousPrice
+                  productInfo.currentPrice >= productInfo.previousPrice
                     ? 'text-green-600'
                     : 'text-red-600'
                 }`}
               >
-                {productInfo.salePrice >= productInfo.previousPrice ? (
+                {productInfo.currentPrice >= productInfo.previousPrice ? (
                   <span>▲</span>
                 ) : (
                   <span>▼</span>
@@ -124,7 +124,7 @@ function ProductDetail() {
                   {' '}
                   
                   {
-                     getPriceChange(productInfo.salePrice, productInfo.previousPrice).percentage
+                     getPriceChange(productInfo.currentPrice, productInfo.previousPrice).percentage
                   }
                   %
                 </span>
@@ -132,7 +132,7 @@ function ProductDetail() {
               <div className="text-left ml-auto">
                 <span className="text-base ">현재가 </span>
                 <span className="text-3xl text-gray-900">
-                  {productInfo.salePrice.toLocaleString()}원
+                  {productInfo.currentPrice.toLocaleString()}원
                 </span>
               </div>
             </div>

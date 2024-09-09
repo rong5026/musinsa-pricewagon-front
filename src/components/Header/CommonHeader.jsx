@@ -7,7 +7,7 @@ import Title from './Title';
 import { useState } from 'react';
 import MobileSidebar from '../Navbar/MobileSidebar';
 import UserMenu from './UserMenu';
-import ProductRegistrationModal from '../Modal/ProductRegistrationModal';
+import ProductRegistrationModal from '../../containers/ProductRegisterPage/ProductRegistrationModal';
 
 function CommonHeader() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);

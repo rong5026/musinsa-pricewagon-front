@@ -3,7 +3,7 @@ import UserButton from './Button/UserButton';
 import { IoChatbubbleEllipsesOutline } from 'react-icons/io5';
 import { AiOutlineAppstoreAdd } from 'react-icons/ai';
 import { GoPerson } from 'react-icons/go';
-import ProductRegistrationModal from '../Modal/ProductRegistrationModal';
+import ProductRegistrationModal from '../../containers/ProductRegisterPage/ProductRegistrationModal';
 
 const UserMenu = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

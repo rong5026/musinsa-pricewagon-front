@@ -49,16 +49,16 @@ function VercelProduct({ product, className }) {
         </h2>
         <div className="flex flex-col justify-between items-start mb-2 flex-grow ">
           <span className="text-lg font-bold">
-            {product.salePrice.toLocaleString()}원
+            {product.currentPrice.toLocaleString()}원
           </span>
           <span
             className={`flex items-center text-xs ${
-              product.salePrice > product.previousPrice
+              product.currentPrice > product.previousPrice
                 ? 'text-green-500'
                 : 'text-red-500'
             }`}
           >
-            {product.salePrice > product.previousPrice ? (
+            {product.currentPrice > product.previousPrice ? (
               <ArrowUpIcon strokeWidth={3} className="w-4 h-4 mr-1" />
             ) : (
               <ArrowDownIcon strokeWidth={3} className="w-4 h-4 mr-1" />
@@ -66,7 +66,7 @@ function VercelProduct({ product, className }) {
             <span className="text-sm lg:text-sm">
               {' '}
               {Math.abs(
-                getPriceChange(product.salePrice, product.previousPrice).diff
+                getPriceChange(product.currentPrice, product.previousPrice).diff
               ).toLocaleString()}
               원
             </span>
@@ -74,7 +74,7 @@ function VercelProduct({ product, className }) {
               {' '}
               (
               {
-                getPriceChange(product.salePrice, product.previousPrice)
+                getPriceChange(product.currentPrice, product.previousPrice)
                   .percentage
               }
               %)

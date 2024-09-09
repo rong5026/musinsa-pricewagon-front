@@ -22,7 +22,7 @@ import {
   FaChevronDown,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import ProductRegistrationModal from '../Modal/ProductRegistrationModal';
+import ProductRegistrationModal from '../../containers/ProductRegisterPage/ProductRegistrationModal';
 
 const menuItems = [
   {
