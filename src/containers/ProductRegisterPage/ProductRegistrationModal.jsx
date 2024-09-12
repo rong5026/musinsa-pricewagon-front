@@ -3,10 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaShoppingCart, FaTimes, FaStore, FaLink, FaCheckCircle } from 'react-icons/fa';
 
 const storeOptions = [
-  { value: 'musinsa', label: '무신사', color: '#0078FF' },
-  { value: 'ably', label: '에이블리', color: '#FF3478' },
-  { value: 'brandi', label: '브랜디', color: '#7000FF' },
-  { value: 'zigzag', label: '지그재그', color: '#FF4E50' },
+  { value: 'musinsa', label: '무신사', color: '#0078FF', defaultUrl: 'https://www.musinsa.com/products/{상품번호}' },
+  { value: 'ably', label: '에이블리', color: '#FF3478', defaultUrl: 'https://m.a-bly.com/goods/{상품번호}' },
+  { value: 'brandi', label: '브랜디', color: '#7000FF', defaultUrl: 'https://www.brandi.co.kr/products/' },
+  { value: 'zigzag', label: '지그재그', color: '#FF4E50', defaultUrl: 'https://zigzag.kr/catalog/' },
 ];
 
 const RegistrationStep = ({ icon, title, description, color }) => (
@@ -24,9 +24,17 @@ const RegistrationStep = ({ icon, title, description, color }) => (
 export default function Component({ isOpen, onClose }) {
   const [selectedStore, setSelectedStore] = useState('');
   const [productUrl, setProductUrl] = useState('');
+  const [urlPlaceholder, setUrlPlaceholder] = useState('상품의 URL을 입력하세요');
 
   const handleStoreChange = (e) => {
-    setSelectedStore(e.target.value);
+    const selected = e.target.value;
+    setSelectedStore(selected);
+    const selectedStoreOption = storeOptions.find(option => option.value === selected);
+    if (selectedStoreOption) {
+      setUrlPlaceholder(selectedStoreOption.defaultUrl);
+    } else {
+      setUrlPlaceholder('상품의 URL을 입력하세요');
+    }
   };
 
   const handleUrlChange = (e) => {
@@ -125,7 +133,6 @@ export default function Component({ isOpen, onClose }) {
                     onChange={handleStoreChange}
                     className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200 bg-white text-sm sm:text-base"
                   >
-                    <option value="">쇼핑몰을 선택하세요</option>
                     {storeOptions.map(option => (
                       <option key={option.value} value={option.value}>
                         {option.label}
@@ -143,7 +150,7 @@ export default function Component({ isOpen, onClose }) {
                     type="text"
                     value={productUrl}
                     onChange={handleUrlChange}
-                    placeholder="상품의 URL을 입력하세요"
+                    placeholder={urlPlaceholder}
                     className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 transition-all duration-200 text-sm sm:text-base"
                   />
                 </div>

@@ -150,7 +150,6 @@ function BestProductsList() {
         {products.length > 0 ? (
           <ProductList products={products} />
         ) : (
-          // <p>Loading...</p> // 로딩 상태를 표시
           <Loading/>
         )}
         <AdditioanlButton />
