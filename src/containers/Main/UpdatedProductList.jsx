@@ -5,71 +5,103 @@ import 'slick-carousel/slick/slick-theme.css';
 import './ProductCarousel.css';
 import Product from '../../components/Product/Product';
 import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
+import VercelProduct from '../../components/Product/VercelProduct';
 
 const products = {
   increase: [
     {
-      id: 1,
-      name: "커브드 오버핏 빅카라 집업 (피그먼트 ver.)_차콜",
-      brand: "키뮤어",
-      starScore: 5.0,
-      reviewCount: 7,
+      productNumber: 2697813,
+      name: 'PRDA DENIM PATCH CREWNECK SHIRT',
+      brand: '프렌다',
+      starScore: 4.8,
+      reviewCount: 3543,
       likeCount: 0,
-      imgUrl: "/images/goods_img/20240806/4301498/4301498_17235982556321_500.jpg",
-      shopType: "MUSINSA",
-      originPrice: 79000,
-      salePrice: 59900,
-      scrap: 1000,
-      categoryName: "후드 집업",
-      parentCategoryName: "아우터"
+      imgUrl:
+        '/images/goods_img/20220804/2697813/2697813_16759892051756_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 24150,
+      previousPrice: 39900,
     },
     {
-      id: 2,
-      name: "라운드넥 스웻셔츠_블랙",
-      brand: "무신사 스탠다드",
+      productNumber: 2338457,
+      name: '하트 벌룬 스웻 셔츠-3 Colors',
+      brand: '비터셀즈',
       starScore: 4.8,
-      reviewCount: 145,
-      likeCount: 120,
-      imgUrl : "/images/goods_img/20240802/4292897/4292897_17230172044349_500.jpg",
-      shopType: "MUSINSA",
-      originPrice: 45000,
-      salePrice: 32000,
-      scrap: 500,
-      categoryName: "스웻셔츠",
-      parentCategoryName: "상의"
-    }
+      reviewCount: 3845,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20220203/2338457/2338457_17254400814620_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 28000,
+      previousPrice: 53200,
+    },
+    {
+      productNumber: 3056893,
+      name: '슈팅 로고 레글런 스웨트셔츠 베이지브라운',
+      brand: '꼼파뇨',
+      starScore: 4.9,
+      reviewCount: 1982,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20230202/3056893/3056893_16759355110509_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 48240,
+      previousPrice: 48240,
+    },
+    {
+      productNumber: 3465073,
+      name: 'SPACE CAT 특양면 맨투맨_B1',
+      brand: '벤힛',
+      starScore: 4.8,
+      reviewCount: 1475,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20230814/3465073/3465073_16921554966152_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 32900,
+      previousPrice: 32900,
+    },
   ],
   decrease: [
     {
-      id: 3,
-      name: "베이직 후드 집업_그레이",
-      brand: "유니클로",
-      starScore: 4.2,
-      reviewCount: 80,
-      likeCount: 300,
-      imgUrl: "/images/goods_img/20231103/3682659/3682659_17002026452853_500.jpg",
-      shopType: "UNIQLO",
-      originPrice: 59000,
-      salePrice: 49000,
-      scrap: 800,
-      categoryName: "후드 집업",
-      parentCategoryName: "아우터"
+      productNumber: 1679943,
+      name: 'RETRIEVER CREWNECK [NAVY]',
+      brand: '비바스튜디오',
+      starScore: 4.8,
+      reviewCount: 9258,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20201105/1679943/1679943_17096910334702_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 34500,
+      previousPrice: 34500,
     },
     {
-      id: 4,
-      name: "슬림핏 청바지_다크블루",
-      brand: "리바이스",
+      productNumber: 3791889,
+      name: '오버핏 포레스트 체크 셔츠-핑크',
+      brand: '필루미네이트',
+      starScore: 4.8,
+      reviewCount: 2547,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20240112/3791889/3791889_17061549687904_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 22000,
+      previousPrice: 29900,
+    },
+    {
+      productNumber: 3771912,
+      name: '스튜피드 체크 셔츠 시리즈 - 8 COLOR',
+      brand: '수아레',
       starScore: 4.9,
-      reviewCount: 220,
-      likeCount: 450,
-      imgUrl: "/images/goods_img/20210813/2062553/2062553_17243797971807_500.jpg",
-      shopType: "MUSINSA",
-      originPrice: 99000,
-      salePrice: 85000,
-      scrap: 1000,
-      categoryName: "청바지",
-      parentCategoryName: "바지"
-    }
+      reviewCount: 1884,
+      likeCount: 0,
+      imgUrl:
+        '/images/goods_img/20240102/3771912/3771912_17096042993927_500.jpg',
+      shopType: 'MUSINSA',
+      currentPrice: 25895,
+      previousPrice: 39900,
+    },
   ],
 };
 
@@ -113,12 +145,12 @@ const ProductCarousel = () => {
 
   return (
     <div className=" max-w-6xl mx-auto text-center py-10">
-      <div className=' flex flex-col md:flex-row  md:justify-between'>
+      <div className=" flex flex-col md:flex-row  md:justify-between">
         <h2 className="text-xl md:text-2xl md:pl-1 font-bold mb-3 text-gray-800">
           가격 변동 상품
         </h2>
 
-         {/* 버튼부분 */}
+        {/* 버튼부분 */}
         <div className="flex justify-center md:justify-center md:pr-4 mb-6 space-x-4">
           <button
             className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
@@ -156,8 +188,7 @@ const ProductCarousel = () => {
 
       <Slider {...settings}>
         {products[selectedTab].map(product => (
-            <Product key={product.id} product={product} className="px-2"/>
-   
+          <VercelProduct key={product.productNumber} product={product} className="px-2" />
         ))}
       </Slider>
     </div>

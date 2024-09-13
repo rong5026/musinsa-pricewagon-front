@@ -6,6 +6,20 @@ import { GoBell, GoBellFill } from 'react-icons/go';
 
 import { ArrowUpIcon, ArrowDownIcon, BellPlus } from 'lucide-react';
 
+// product 예시
+// {
+//   productNumber: 2697813,
+//   name: 'PRDA DENIM PATCH CREWNECK SHIRT',
+//   brand: '프렌다',
+//   starScore: 4.8,
+//   reviewCount: 3543,
+//   likeCount: 0,
+//   imgUrl:
+//     '/images/goods_img/20220804/2697813/2697813_16759892051756_500.jpg',
+//   shopType: 'MUSINSA',
+//   currentPrice: 24150,
+//   previousPrice: 39900,
+// },
 function VercelProduct({ product, className }) {
   const navigate = useNavigate();
 
