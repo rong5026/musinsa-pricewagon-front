@@ -3,8 +3,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import './ProductCarousel.css';
+import { FaArrowUp, FaArrowDown, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Product from '../../components/Product/Product';
-import { FaArrowUp, FaArrowDown } from 'react-icons/fa';
 import VercelProduct from '../../components/Product/VercelProduct';
 
 const products = {
@@ -105,6 +105,18 @@ const products = {
   ],
 };
 
+const CustomArrow = ({ direction, onClick }) => (
+  <button
+    onClick={onClick}
+    className={`absolute z-10 top-1/2 -translate-y-1/2 ${
+      direction === 'left' ? '-left-4' : '-right-4'
+    } 
+    bg-white bg-opacity-50 hover:bg-opacity-75 rounded-full p-2 shadow-md transition-all duration-200`}
+  >
+    {direction === 'left' ? <FaChevronLeft size={20} /> : <FaChevronRight size={20} />}
+  </button>
+);
+
 const ProductCarousel = () => {
   const [selectedTab, setSelectedTab] = useState('increase');
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -116,6 +128,8 @@ const ProductCarousel = () => {
     slidesToShow: 4, // 기본으로 4개 보여줌
     slidesToScroll: 4, // 화면에 보여지는 개수만큼 스크롤
     arrows: true,
+    prevArrow: <CustomArrow direction="left" />,
+    nextArrow: <CustomArrow direction="right" />,
     adaptiveHeight: true,
     beforeChange: (oldIndex, newIndex) => setCurrentSlide(newIndex),
     responsive: [
@@ -144,54 +158,48 @@ const ProductCarousel = () => {
   };
 
   return (
-    <div className=" max-w-6xl mx-auto text-center py-10">
-      <div className=" flex flex-col md:flex-row  md:justify-between">
-        <h2 className="text-xl md:text-2xl md:pl-1 font-bold mb-3 text-gray-800">
-          가격 변동 상품
-        </h2>
+    <div className="max-w-6xl mx-auto text-center py-10 px-4">
+    <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4 md:mb-0">
+        가격 변동 상품
+      </h2>
 
-        {/* 버튼부분 */}
-        <div className="flex justify-center md:justify-center md:pr-4 mb-6 space-x-4">
-          <button
-            className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
-              selectedTab === 'increase'
-                ? 'bg-green-500 text-white'
-                : 'bg-gray-200 text-gray-700'
-            }`}
-            onClick={() => setSelectedTab('increase')}
-          >
-            <FaArrowUp
-              className={`${
-                selectedTab === 'increase' ? 'text-white' : 'text-green-500'
-              }`}
-            />
-            <span>가격 상승</span>
-          </button>
+      <div className="flex justify-center space-x-4">
+        <button
+          className={`flex items-center py-2 px-4 rounded-full font-semibold transition-colors duration-200 ${
+            selectedTab === 'increase'
+              ? 'bg-green-500 text-white'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+          onClick={() => setSelectedTab('increase')}
+        >
+          <FaArrowUp className="mr-2" />
+          <span>가격 상승</span>
+        </button>
 
-          <button
-            className={`flex items-center py-2 px-4 rounded-lg font-semibold space-x-2 ${
-              selectedTab === 'decrease'
-                ? 'bg-red-500 text-white'
-                : 'bg-gray-200 text-gray-700'
-            }`}
-            onClick={() => setSelectedTab('decrease')}
-          >
-            <FaArrowDown
-              className={`${
-                selectedTab === 'decrease' ? 'text-white' : 'text-red-500'
-              }`}
-            />
-            <span>가격 하락</span>
-          </button>
-        </div>
+        <button
+          className={`flex items-center py-2 px-4 rounded-full font-semibold transition-colors duration-200 ${
+            selectedTab === 'decrease'
+              ? 'bg-red-500 text-white'
+              : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+          }`}
+          onClick={() => setSelectedTab('decrease')}
+        >
+          <FaArrowDown className="mr-2" />
+          <span>가격 하락</span>
+        </button>
       </div>
-
-      <Slider {...settings}>
-        {products[selectedTab].map(product => (
-          <VercelProduct key={product.productNumber} product={product} className="px-2" />
-        ))}
-      </Slider>
     </div>
+    <div className="px-6"> 
+    <Slider {...settings}>
+      {products[selectedTab].map(product => (
+        <div key={product.productNumber} className="px-2 text-start">
+          <VercelProduct product={product} />
+        </div>
+      ))}
+    </Slider>
+    </div>
+  </div>
   );
 };
 

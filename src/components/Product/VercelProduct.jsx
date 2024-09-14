@@ -61,12 +61,12 @@ function VercelProduct({ product, className }) {
         <h2 className="text-base font-semibold mb-2 leading-tight h-12 sm:h-14 overflow-hidden">
           <span className="line-clamp-2">{product.name}</span>
         </h2>
-        <div className="flex flex-col justify-between items-start mb-2 flex-grow ">
+        <div className="flex flex-col justify-between mb-2 flex-grow ">
           <span className="text-lg font-bold">
             {product.currentPrice.toLocaleString()}원
           </span>
           <span
-            className={`flex items-center text-xs ${
+            className={`flex items-center text-x ${
               product.currentPrice > product.previousPrice
                 ? 'text-green-500'
                 : 'text-red-500'

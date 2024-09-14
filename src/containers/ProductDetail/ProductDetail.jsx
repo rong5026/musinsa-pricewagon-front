@@ -6,6 +6,7 @@ import {
   FaArrowUp,
   FaArrowDown,
   FaEquals,
+  FaShoppingCart,
 } from 'react-icons/fa';
 import PriceGraph from '../../components/Graph/PriceGraph';
 import CustomButton from '../../components/Button/CustomButton';
@@ -122,9 +123,11 @@ function ProductDetail() {
                 )}
                 <span>
                   {' '}
-                  
                   {
-                     getPriceChange(productInfo.currentPrice, productInfo.previousPrice).percentage
+                    getPriceChange(
+                      productInfo.currentPrice,
+                      productInfo.previousPrice
+                    ).percentage
                   }
                   %
                 </span>
@@ -175,13 +178,29 @@ function ProductDetail() {
             />
           </div>
 
-          <div className="bg-white mt-2 flex items-center justify-between space-x-4 p-4 rounded-lg shadow-md">
-            <CustomButton
-              label="구매하기"
-              size="large"
-              clickUrl={productDetail.productUrl}
-            />
-            <CustomButton label="찜하기" size="large" />
+          <div className="mt-6 flex items-center justify-between">
+            <div className="flex w-full rounded-full shadow-lg overflow-hidden">
+              <button
+                onClick={() => window.open(productDetail.productUrl, '_blank')}
+                className="flex-1 bg-blue-500 text-white font-bold py-3 px-6 border-r border-blue-400 hover:bg-blue-600 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 group"
+              >
+                <div className="flex items-center justify-center">
+                  <FaShoppingCart className="mr-2 group-hover:animate-bounce" />
+                  <span>구매하기</span>
+                </div>
+              </button>
+              <button
+                onClick={() => {
+                  /* 찜하기 로직 */
+                }}
+                className="flex-1 bg-white text-gray-800 font-bold py-3 px-6 hover:bg-gray-100 transition duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-pink-400 focus:ring-opacity-50 group"
+              >
+                <div className="flex items-center justify-center">
+                  <FaHeart className="mr-2 text-pink-500 group-hover:animate-pulse" />
+                  <span>찜하기</span>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </div>
