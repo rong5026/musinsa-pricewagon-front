@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaStar, FaHeart, FaBookmark } from 'react-icons/fa';
+import { FaStar, FaHeart, FaBookmark, FaBell } from 'react-icons/fa';
 
 const RatingInfo = ({ rating, reviews, likes, bookmarks }) => {
   const formatNumber = num => {
@@ -19,7 +19,7 @@ const RatingInfo = ({ rating, reviews, likes, bookmarks }) => {
         <span className="font-semibold">{formatNumber(likes)}</span>
       </div>
       <div className="flex items-center">
-        <FaBookmark className="text-blue-500 mr-1" />
+        <FaBell className="text-blue-500 mr-1" />
         <span className="font-semibold">{formatNumber(bookmarks)}</span>
       </div>
     </div>
