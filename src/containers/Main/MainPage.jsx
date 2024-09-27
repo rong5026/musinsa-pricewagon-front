@@ -13,7 +13,7 @@ function MainPage() {
       <BestProductsList/>
       <DivideLine/>
       <UpdatedProductList/>
-      <PromoBanner/>
+      {/* <PromoBanner/> */}
 
     </div>
   );
