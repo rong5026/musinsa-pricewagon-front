@@ -44,7 +44,7 @@ function ProductDetail() {
           productDetail,
           productHistoryList,
           parentAndChildCategoryDTO,
-        } = response.data.data;
+        } = response.data;
 
         setProductInfo(basicProductInfo);
         setProductDetail(productDetail);
