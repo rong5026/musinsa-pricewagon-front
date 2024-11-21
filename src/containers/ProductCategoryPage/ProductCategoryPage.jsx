@@ -20,9 +20,9 @@ function ProductCategoryPage() {
           `${process.env.REACT_APP_API_URL}/api/v1/products/${shoptype.toUpperCase()}/category/${id}`
         ),
       ]);
-      setCategories(categoryResponse.data);
-      setProducts(productResponse.data);
-      console.log(categoryResponse.data);
+      setCategories(categoryResponse.data.data);
+      setProducts(productResponse.data.data);
+      console.log(categoryResponse.data.data);
 
       console.log('카테고리, 카테고리 상품 리스트 요청 성공');
     } catch (error) {
@@ -37,7 +37,7 @@ function ProductCategoryPage() {
       `${process.env.REACT_APP_API_URL}/api/v1/products/${shoptype.toUpperCase()}/category/${sub_category_id}`
       );
 
-      setProducts(response.data);
+      setProducts(response.data.data);
       console.log('하위 카테고리 상품 리스트 요청 성공');
     } catch (error) {
       console.log('하위 카테고리 상품 리스트 요청 오류:', error);
