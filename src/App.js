@@ -15,8 +15,14 @@ function App() {
           <Routes>
             <Route exact path="/" element={<MainPage />} />
             <Route path="/:shoptype/products/:id" element={<ProductDetail />} />
-            <Route path="/:shoptype/category/:id" element={<ProductCategoryPage/>} />
-            <Route path="/:shoptype/category/:id/sub_category/:sub_category_id" element={<ProductCategoryPage/>}/>
+            <Route
+              path="/:shoptype/category/:id"
+              element={<ProductCategoryPage />}
+            />
+            <Route
+              path="/:shoptype/category/:id/sub_category/:sub_category_id"
+              element={<ProductCategoryPage />}
+            />
           </Routes>
         </main>
         <Footer />

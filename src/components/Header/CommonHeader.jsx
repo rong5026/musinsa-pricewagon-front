@@ -48,7 +48,10 @@ function CommonHeader() {
         <MobileSearchButton />
       </div>
       <PCTopNavbar />
-      <ProductRegistrationModal isOpen={isRegisterModalOpen} onClose={closeModal} />
+      <ProductRegistrationModal
+        isOpen={isRegisterModalOpen}
+        onClose={closeModal}
+      />
     </header>
   );
 }

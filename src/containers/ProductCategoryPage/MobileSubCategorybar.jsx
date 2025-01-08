@@ -1,8 +1,10 @@
-import React,  { useState } from 'react';
-import { Link } from 'react-router-dom'; 
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function MobileSubCategorybar({ categories, shoptype, sub_category_id}) {
-  const [activeCategoryId, setActiveCategoryId] = useState(sub_category_id || null);
+function MobileSubCategorybar({ categories, shoptype, sub_category_id }) {
+  const [activeCategoryId, setActiveCategoryId] = useState(
+    sub_category_id || null
+  );
 
   const handleCategoryClick = categoryId => {
     setActiveCategoryId(categoryId);
@@ -21,7 +23,7 @@ function MobileSubCategorybar({ categories, shoptype, sub_category_id}) {
             }`}
             onClick={() => handleCategoryClick(category.id)}
           >
-            {category.cateroyName}
+            {category.categoryName}
           </Link>
         ))}
       </div>

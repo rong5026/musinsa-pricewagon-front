@@ -37,7 +37,7 @@ function ProductDetail() {
     const fetchProductInfo = async () => {
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/api/v1/products/${shoptype.toUpperCase()}/${id}`
+          `${process.env.REACT_APP_API_URL}/api/v1/products/content/${shoptype.toUpperCase()}/${id}`
         );
         const {
           basicProductInfo,
