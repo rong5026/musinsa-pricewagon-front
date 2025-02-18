@@ -49,6 +49,7 @@ function ProductDetail() {
         setProductInfo(basicProductInfo);
         setProductDetail(productDetail);
         setProductCategoryList(parentAndChildCategoryDTO);
+
         // 날짜 형식 변환
         setProductHistoryList(
           productHistoryList.map(history => ({
@@ -64,6 +65,8 @@ function ProductDetail() {
 
         console.log(response.data);
         console.log('개별 상품 요청 성공');
+        console.log(productInfo);
+        console.log(productCategoryList);
       } catch (error) {
         console.error('개별 상품 요청 오류:', error);
       }
@@ -72,7 +75,12 @@ function ProductDetail() {
     fetchProductInfo();
   }, [id, shoptype]);
 
-  if (!productInfo || !productDetail || !productHistoryList) {
+  if (
+    !productInfo ||
+    !productDetail ||
+    !productHistoryList ||
+    !productCategoryList
+  ) {
     return <Loading />;
   }
 
@@ -95,9 +103,9 @@ function ProductDetail() {
               </span>
               {/* 카테고리 */}
               <h2 className="text-gray-500 text-sm">
-                {productCategoryList.parentCategory.cateroyName}
+                {productCategoryList.parentCategory.categoryName}
                 {' > '}
-                {productCategoryList.childCategory.cateroyName}
+                {productCategoryList.childCategory.categoryName}
               </h2>
             </div>
             {/* 상품 제목 */}
