@@ -27,6 +27,6 @@ const UserMenu = () => {
       <ProductRegistrationModal isOpen={isModalOpen} onClose={closeModal} />
     </>
   );
-};
+}
 
 export default UserMenu;

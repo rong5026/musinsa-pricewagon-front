@@ -65,8 +65,6 @@ function ProductDetail() {
 
         console.log(response.data);
         console.log('개별 상품 요청 성공');
-        console.log(productInfo);
-        console.log(productCategoryList);
       } catch (error) {
         console.error('개별 상품 요청 오류:', error);
       }

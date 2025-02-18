@@ -24,7 +24,7 @@ function PCSubCategorybar({ categories, shoptype, sub_category_id }) {
                 }`}
                 onClick={() => setActiveCategoryId(category.id)}
               >
-                {category.cateroyName}
+                {category.categoryName}
               </Link>
             </li>
           ))}
